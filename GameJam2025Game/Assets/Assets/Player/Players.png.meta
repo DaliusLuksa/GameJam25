@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80335f213dedcf740bdb97d9c4285a8f
+guid: 7fbfccd128a1a2649a1236951d9fa48f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,12 +97,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite-0005_0
+      name: Players_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 1
-        width: 14
+        width: 16
         height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -111,19 +111,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 352a6337e2a735642a616bc1f737d340
-      internalID: 1923618372
+      spriteID: 5019321b0a9f3d245bd6202883c69f99
+      internalID: -1901091648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0005_1
+      name: Players_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 1
-        width: 14
+        width: 16
         height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -132,19 +132,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27725d9aaf76e13478bd45cdc06f19c9
-      internalID: -1839059449
+      spriteID: d776a998a6d8f1741b137d21258140e4
+      internalID: 1122785724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0005_2
+      name: Players_2
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 1
-        width: 14
+        width: 16
         height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba68a87fdbd90ed4d8cab8db8be9d905
-      internalID: -1953083261
+      spriteID: 4c0bbc0f0beeb16468e5185b6aea9312
+      internalID: 1693000172
       vertices: []
       indices: 
       edges: []
@@ -170,9 +170,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite-0005_0: 1923618372
-      Sprite-0005_1: -1839059449
-      Sprite-0005_2: -1953083261
+      Players_0: -1901091648
+      Players_1: 1122785724
+      Players_2: 1693000172
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
