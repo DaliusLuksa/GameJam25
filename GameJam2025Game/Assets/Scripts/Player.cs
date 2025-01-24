@@ -68,6 +68,11 @@ public class Player : PlaceableInventory
         currentItemHeld = null;
     }
 
+    public Item? GetHeldItem() 
+    {
+        return _inventory.GetItem();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<IInteractable>() != null)

@@ -16,7 +16,7 @@ public class Inventory
         return _inventoryItem;
     }
 
-    public Item GetItem()
+    public Item? GetItem()
     {
         return _inventoryItem;
     }
