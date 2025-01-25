@@ -19,6 +19,8 @@ public class Item : MonoBehaviour
     public Sprite ItemSprite => _currentSprite;
     public Color ItemSpriteColor => _currentSpriteColor;
 
+    public List<(ItemAction,Item)> Recipe {  get; private set; }
+
     public void SetItemType(ItemType itemType)
     {
         _currentItemType = itemType;
@@ -73,6 +75,7 @@ public class Item : MonoBehaviour
         CurrentItemUpgradeLevel = itemData.StartingUpgradeLevel;
         _currentSprite = itemData.ItemSprite;
         _currentSpriteColor = itemData.ItemSpriteColor;
+        Recipe = new();
     }
 }
 

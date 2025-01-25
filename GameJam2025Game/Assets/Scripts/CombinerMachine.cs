@@ -41,6 +41,7 @@ public class CombinerMachine : MonoBehaviour, IInteractable
             var newSprite = SpriteCombiner.MergeSprites(leftBubble.ItemSprite, rightBubble.ItemSprite, rightOffset, rightScale, rightColor
                 , leftOffset, leftScale, leftColor);
 
+            leftBubble.Recipe.Add((ItemAction.COMBINE, rightBubble));
             //leftBubble.Recipe.Append(Upgrades.Combine,rightBubble.CurrentItemType); //for later :)
             leftBubble.SetItemColor(ItemColor.White);
             leftBubble.SetItemSprite(newSprite);

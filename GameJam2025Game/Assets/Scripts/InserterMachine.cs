@@ -34,7 +34,8 @@ public class InserterMachine : MonoBehaviour, IInteractable
             
             var newSprite = SpriteCombiner.InsertSprites(leftBubble.ItemSprite, rightBubble.ItemSprite, Vector2.zero, scaleOfInsertedItem
                 , rightBubble.ItemSpriteColor, leftBubble.ItemSpriteColor);
-            
+
+            leftBubble.Recipe.Add((ItemAction.INSERT,rightBubble));
             //leftBubble.Recipe.Append(Upgrades.Insert,rightBubble.CurrentItemType); //for later :)
             leftBubble.SetItemColor(ItemColor.White);
             leftBubble.SetItemSprite(newSprite);
