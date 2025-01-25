@@ -3,6 +3,7 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Animator animator;
     private Rigidbody2D rb;
     private Vector2 movement;
 
@@ -24,6 +25,10 @@ public class Player_Movement : MonoBehaviour
         {
             float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg -90;
             transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            animator.SetBool("Walking", true);
+        } else {
+            animator.SetBool("Walking", false);
         }
     }
 
