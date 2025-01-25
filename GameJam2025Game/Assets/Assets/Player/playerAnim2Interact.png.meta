@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 42ad1a4af64413549ac4219b44133b32
+guid: 391aabed18252174185c3ae2129df3fd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,11 +97,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Players 1_0
+      name: playerAnim2Interact_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
+        y: 0
         width: 32
         height: 28
       alignment: 0
@@ -111,18 +111,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4759b4827117da948ab5bd825c2eac8f
-      internalID: -333353930
+      spriteID: 944d7ea2baa5f0b41b163c600ba178cd
+      internalID: 1823005307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Players 1_1
+      name: playerAnim2Interact_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f03add0ddaace24f8fe9610ce771dc6
+      internalID: -1207921211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerAnim2Interact_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 2
+        y: 0
         width: 32
         height: 28
       alignment: 0
@@ -132,18 +153,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0edf0d6c864d5d24fb4b66494b82123d
-      internalID: 1913056735
+      spriteID: 570ec9a14dce6b943b973aa58cdfb328
+      internalID: -1863760414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Players 1_2
+      name: playerAnim2Interact_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 2
+        x: 96
+        y: 0
         width: 32
         height: 28
       alignment: 0
@@ -153,8 +174,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ead9f49c0d22ff1408b0c44bd3857632
-      internalID: 2135934283
+      spriteID: 7657bf407ecf6d6459895a71861dda65
+      internalID: 1732350733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerAnim2Interact_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b11b5a86b9753774e8635df5ea76c5bd
+      internalID: -599968740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerAnim2Interact_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec04d1523d108d54aa6ffc5e444efc86
+      internalID: -1846964469
       vertices: []
       indices: 
       edges: []
@@ -170,9 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Players 1_0: -333353930
-      Players 1_1: 1913056735
-      Players 1_2: 2135934283
+      playerAnim2Interact_0: 1823005307
+      playerAnim2Interact_1: -1207921211
+      playerAnim2Interact_2: -1863760414
+      playerAnim2Interact_3: 1732350733
+      playerAnim2Interact_4: -599968740
+      playerAnim2Interact_5: -1846964469
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
