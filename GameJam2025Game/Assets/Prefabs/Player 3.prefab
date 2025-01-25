@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 8485923342672522256}
   - component: {fileID: 2357762806470703976}
   - component: {fileID: 6789147168836819379}
+  - component: {fileID: 4504640500473960577}
   m_Layer: 0
   m_Name: Player 3
   m_TagString: Player
@@ -338,6 +339,7 @@ MonoBehaviour:
   playerInteractPromptSprite: {fileID: 1315165920694024829}
   playerInteractKeycode: 101
   playerAltInteractKeycode: 102
+  _handUI: {fileID: 0}
   currentItemHeld: {fileID: 0}
 --- !u!114 &2357762806470703976
 MonoBehaviour:
@@ -352,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  animator: {fileID: 0}
+  animator: {fileID: 4504640500473960577}
   controlScheme: 2
 --- !u!114 &6789147168836819379
 MonoBehaviour:
@@ -368,3 +370,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   playerColor: 0
+--- !u!95 &4504640500473960577
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8511092139405904231}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb213e738e07f9441bd4e619639a3f64, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

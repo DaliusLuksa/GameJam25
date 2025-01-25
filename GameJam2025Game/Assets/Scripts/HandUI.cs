@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class HandUI : MonoBehaviour
 {
     [SerializeField] private Player _player = null;
-    [SerializeField] private Sprite _uiImage = null;
 
 public void onChangeHandUi(Sprite newHandImage)
 {
