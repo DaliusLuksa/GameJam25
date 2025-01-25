@@ -6,6 +6,7 @@ public class Player : PlaceableInventory
     [SerializeField] private SpriteRenderer playerInteractPromptSprite = null;
     [SerializeField] private KeyCode playerInteractKeycode = KeyCode.E;
     [SerializeField] private KeyCode playerAltInteractKeycode = KeyCode.F;
+        [SerializeField] private HandUI _handUI = null;
 
     private IInteractable _currInteractableObject = null;
     private IAlternativelyInteractible _currAltInteractableObject = null;
@@ -75,9 +76,11 @@ public class Player : PlaceableInventory
     public void GiveItem(Item newItem)
     {
         bool result = _inventory.AddItem(newItem);
+
         if (result)
         {
             currentItemHeld = newItem;
+            _handUI.onChangeHandUi(newItem.ItemSprite);
         }
     }
 
@@ -85,6 +88,7 @@ public class Player : PlaceableInventory
     {
         _inventory.RemoveItem();
         currentItemHeld = null;
+        _handUI.onChangeHandUi(null);
     }
 
     public Item? GetHeldItem() 
