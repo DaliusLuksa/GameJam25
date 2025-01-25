@@ -25,7 +25,7 @@ public class CombinerMachine : MonoBehaviour, IInteractable
             var upgradeLevel = Mathf.Max(leftBubble.CurrentItemUpgradeLevel, rightBubble.CurrentItemUpgradeLevel);
             Vector2 leftOffset = Vector2.zero, rightOffset = Vector2.zero;
             float leftScale = 0f, rightScale = 0f;
-            Color leftColor = Color.white, rightColor = Color.white;
+            Color leftColor = leftBubble.ItemSpriteColor, rightColor = rightBubble.ItemSpriteColor;
             if (upgradeLevel == 0)
             {
                 leftOffset = new Vector2(-8f, 0f); rightOffset = new Vector2(8f, 0f);
@@ -42,6 +42,7 @@ public class CombinerMachine : MonoBehaviour, IInteractable
                 , leftOffset, leftScale, leftColor);
 
             //leftBubble.Recipe.Append(Upgrades.Combine,rightBubble.CurrentItemType); //for later :)
+            leftBubble.SetItemColor(ItemColor.White);
             leftBubble.SetItemSprite(newSprite);
             leftBubble.EnlargeItemLevel();
             leftBubble.SetItemType(ItemType.Complex);
