@@ -6,7 +6,7 @@ public class Player : PlaceableInventory
     [SerializeField] private SpriteRenderer playerInteractPromptSprite = null;
     [SerializeField] private KeyCode playerInteractKeycode = KeyCode.E;
     [SerializeField] private KeyCode playerAltInteractKeycode = KeyCode.F;
-        [SerializeField] private HandUI _handUI = null;
+    [SerializeField] private HandUI _handUI = null;
 
     private IInteractable _currInteractableObject = null;
     private IAlternativelyInteractible _currAltInteractableObject = null;
@@ -91,7 +91,7 @@ public class Player : PlaceableInventory
         _handUI.onChangeHandUi(null);
     }
 
-    public Item? GetHeldItem() 
+    public Item? GetHeldItem()
     {
         return _inventory.GetItem();
     }
@@ -103,7 +103,7 @@ public class Player : PlaceableInventory
             Debug.Log($"Player hit interactable object - {collision.gameObject}");
             _currInteractableObject = collision.gameObject.GetComponent<IInteractable>();
         }
-        
+
         if (collision.gameObject.GetComponent<IAlternativelyInteractible>() != null)
         {
             Debug.Log($"Player hit alternatively interactable object - {collision.gameObject}");
@@ -124,7 +124,7 @@ public class Player : PlaceableInventory
             Debug.Log($"Player left interactable object - {collision.gameObject}");
             _currInteractableObject = null;
         }
-        
+
         if (collision.gameObject.GetComponent<IAlternativelyInteractible>() != null)
         {
             Debug.Log($"Player left alternatively interactable object - {collision.gameObject}");

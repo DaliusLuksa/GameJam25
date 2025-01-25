@@ -17,7 +17,7 @@ public class CombinerMachine : MonoBehaviour, IInteractable
         var isLeftInputValid = ValidateBubble(leftBubble);
         var isRightInputValid = ValidateBubble(rightBubble);
 
-        if (isLeftInputValid && isRightInputValid && interactingPlayer.HasSpaceInInventory() || true)
+        if (isLeftInputValid && isRightInputValid && interactingPlayer.HasSpaceInInventory())
         {
             LeftMachineInput.RemoveItem();
             RightMachineInput.RemoveItem();
@@ -28,13 +28,14 @@ public class CombinerMachine : MonoBehaviour, IInteractable
             Color leftColor = Color.white, rightColor = Color.white;
             if (upgradeLevel == 0)
             {
-                leftOffset = new Vector2(-4f, 0f); rightOffset = new Vector2(4f, 0f);
-                leftScale= 0.25f; rightScale = 0.25f;
+                leftOffset = new Vector2(-8f, 0f); rightOffset = new Vector2(8f, 0f);
+                leftScale= 0.5f; rightScale = 0.5f;
 
             }
             else if (upgradeLevel == 1)
             {
-
+                leftOffset = new Vector2(0, -8f); rightOffset = new Vector2(0, 8f);
+                leftScale = 0.5f; rightScale = 0.5f;
             }
 
             var newSprite = SpriteCombiner.MergeSprites(leftBubble.ItemSprite, rightBubble.ItemSprite, rightOffset, rightScale, rightColor

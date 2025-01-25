@@ -17,7 +17,7 @@ public class InserterMachine : MonoBehaviour, IInteractable
         var isLeftInputValid = ValidateBubble(leftBubble);
         var isRightInputValid = ValidateBubble(rightBubble);
 
-        if (isLeftInputValid && isRightInputValid && interactingPlayer.HasSpaceInInventory() || true)
+        if (isLeftInputValid && isRightInputValid && interactingPlayer.HasSpaceInInventory())
         {
             LeftMachineInput.RemoveItem();
             RightMachineInput.RemoveItem();
@@ -39,7 +39,7 @@ public class InserterMachine : MonoBehaviour, IInteractable
         }
         if (bubble.CurrentItemType == ItemType.Complex)
         {
-            return bubble.CurrentItemUpgradeLevel < 3;
+            return bubble.CurrentItemUpgradeLevel < _managerSO.MAX_UPGRADE_LEVEL;
         }
         return _managerSO.BubbleTypes.Contains(bubble.CurrentItemType);
     }
