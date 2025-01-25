@@ -14,8 +14,9 @@ public class Player : PlaceableInventory
     // TODO: DELETE THIS SHIT LATER
     [SerializeField] private Item currentItemHeld = null;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _player_health = GetComponent<Player_Health>();
     }
 
