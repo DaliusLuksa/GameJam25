@@ -56,4 +56,7 @@ public abstract class PlaceableInventory : MonoBehaviour
     {
         return !_inventory.HasItem();
     }
+
+    public Item GetItem() { return _inventory.GetItem(); }
+    public void RemoveItem() { _inventory.RemoveItem(); }
 }
