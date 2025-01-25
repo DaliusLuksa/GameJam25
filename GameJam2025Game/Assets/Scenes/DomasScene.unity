@@ -383,6 +383,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FormUser
       objectReference: {fileID: 0}
+    - target: {fileID: 6928069454806260525, guid: 28a3f698bf978814f9c32acbffe61133, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 917029481, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
+    - target: {fileID: 6928069454806260525, guid: 28a3f698bf978814f9c32acbffe61133, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7953928188404079985, guid: 28a3f698bf978814f9c32acbffe61133, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.16
@@ -422,6 +430,14 @@ PrefabInstance:
     - target: {fileID: 7953928188404079985, guid: 28a3f698bf978814f9c32acbffe61133, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213382021049655544, guid: 28a3f698bf978814f9c32acbffe61133, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 917029481, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
+    - target: {fileID: 9213382021049655544, guid: 28a3f698bf978814f9c32acbffe61133, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -480,6 +496,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6153061623210550925, guid: 5594519daee96d8499fbe53b384bdc4d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 917029481, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
+    - target: {fileID: 6153061623210550925, guid: 5594519daee96d8499fbe53b384bdc4d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994970542868129039, guid: 5594519daee96d8499fbe53b384bdc4d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 917029481, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
+    - target: {fileID: 6994970542868129039, guid: 5594519daee96d8499fbe53b384bdc4d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -497,6 +529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FormChanger
       objectReference: {fileID: 0}
+    - target: {fileID: 4105616059880636876, guid: 7c6709eae74377c44b6c554168b5f56f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1870981074, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
     - target: {fileID: 6547308835805901006, guid: 7c6709eae74377c44b6c554168b5f56f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.18
@@ -666,6 +702,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: InserterMachine
       objectReference: {fileID: 0}
+    - target: {fileID: 4718735303414369997, guid: e5a8e80e6dea28f40bbe2e565fd0cf08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 184293556, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
+    - target: {fileID: 5474132562576022221, guid: e5a8e80e6dea28f40bbe2e565fd0cf08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 917029481, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
+    - target: {fileID: 5474132562576022221, guid: e5a8e80e6dea28f40bbe2e565fd0cf08, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768812479529113426, guid: e5a8e80e6dea28f40bbe2e565fd0cf08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 917029481, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
+    - target: {fileID: 7768812479529113426, guid: e5a8e80e6dea28f40bbe2e565fd0cf08, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -718,6 +774,14 @@ PrefabInstance:
     - target: {fileID: 1259691275117513113, guid: 200aa725a66409d4f9165818531e8fa1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997944956307921360, guid: 200aa725a66409d4f9165818531e8fa1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 917029481, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
+    - target: {fileID: 1997944956307921360, guid: 200aa725a66409d4f9165818531e8fa1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4678371944010574432, guid: 200aa725a66409d4f9165818531e8fa1, type: 3}
       propertyPath: m_SortingOrder
@@ -1509,6 +1573,22 @@ PrefabInstance:
     - target: {fileID: 1431488043821766947, guid: 01b7e4991af24b545a777dd042a3d117, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529018980112229990, guid: 01b7e4991af24b545a777dd042a3d117, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 917029481, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
+    - target: {fileID: 1529018980112229990, guid: 01b7e4991af24b545a777dd042a3d117, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522811257281242875, guid: 01b7e4991af24b545a777dd042a3d117, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 917029481, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
+    - target: {fileID: 2522811257281242875, guid: 01b7e4991af24b545a777dd042a3d117, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
