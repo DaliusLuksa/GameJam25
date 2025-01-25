@@ -9,9 +9,15 @@ public class Player : PlaceableInventory
     private IInteractable _currInteractableObject = null;
     private IAlternativelyInteractible _currAltInteractableObject = null;
     private PlaceableInventory _currPlaceableInventoryObject = null;
+    private Player_Health _player_health = null;
 
     // TODO: DELETE THIS SHIT LATER
     [SerializeField] private Item currentItemHeld = null;
+
+    private void Awake()
+    {
+        _player_health = GetComponent<Player_Health>();
+    }
 
     private void Update()
     {
@@ -26,6 +32,9 @@ public class Player : PlaceableInventory
 
     private void HandlePlayerInteractInput()
     {
+        // If player is dead, we block the input handling stuff
+        if (!_player_health.IsAlive()) { return; }
+
         if (_currInteractableObject != null && Input.GetKeyDown(playerInteractKeycode))
         {
             _currInteractableObject.Interact(this);

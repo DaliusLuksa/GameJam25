@@ -1,17 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Health : MonoBehaviour
 {
-    [SerializeField]
-    private int health = 100;
-    public bool isDamageable(ColorsEnum color) => true; // TODO: make this compare input color and player color
+    [SerializeField] private float health = 10;
+    [SerializeField] private ColorsEnum playerColor = ColorsEnum.UNKNOWN;
+    private bool _isAlive = true;
 
-    public void TakeDamage(int amount)
+    public bool IsAlive() => _isAlive;
+    public bool IsDamageable(ColorsEnum roomColor) => roomColor != playerColor;
+
+    private void Awake()
     {
+        playerColor = ColorsEnum.BLUE;
+    }
+
+    public void TakeDamage(float amount)
+    {
+        if (health <= 0) { return; }
+
         health -= amount;
-        Debug.Log("Player took damage. Current health: " + health);
 
         if (health <= 0)
         {
@@ -21,8 +28,9 @@ public class Player_Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player has died!");
+        Debug.Log($"{gameObject.name} Player has died!");
 
+        _isAlive = false;
         gameObject.SetActive(false);
     }
 }
