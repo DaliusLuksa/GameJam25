@@ -29,7 +29,7 @@ public class CombinerMachine : MonoBehaviour, IInteractable
             if (upgradeLevel == 0)
             {
                 leftOffset = new Vector2(-4f, 0f); rightOffset = new Vector2(4f, 0f);
-                leftScale= 0.5f; rightScale = 0.5f;
+                leftScale= 0.25f; rightScale = 0.25f;
 
             }
             else if (upgradeLevel == 1)

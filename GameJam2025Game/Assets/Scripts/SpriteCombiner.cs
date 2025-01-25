@@ -34,7 +34,7 @@ public class SpriteCombiner
         combinedTexture.Apply();
 
         // Create and return a new sprite from the combined texture
-        return Sprite.Create(combinedTexture, new Rect(0, 0, width, height), new Vector2(0.5f, 0.5f), 16f); //pixels per unit 16f, change later if more pixels
+        return Sprite.Create(combinedTexture, new Rect(0, 0, width, height), new Vector2(0.5f, 0.5f), 32f); //pixels per unit 32f, change later if more pixels
 
     }
 
