@@ -80,7 +80,7 @@ public class Player : PlaceableInventory
         if (result)
         {
             currentItemHeld = newItem;
-            _handUI.onChangeHandUi(newItem.ItemSprite);
+            _handUI?.onChangeHandUi(newItem.ItemSprite);
         }
     }
 
@@ -88,7 +88,7 @@ public class Player : PlaceableInventory
     {
         _inventory.RemoveItem();
         currentItemHeld = null;
-        _handUI.onChangeHandUi(null);
+        _handUI?.onChangeHandUi(null);
     }
 
     public Item? GetHeldItem()

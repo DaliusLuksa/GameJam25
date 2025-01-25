@@ -8,4 +8,7 @@
     SquareForm,
     TriangleForm,
     Complex, // is combined and/or inserted
+    PaintGreen,
+    PaintRed,
+    PaintBlue,
 }

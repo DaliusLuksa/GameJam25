@@ -19,6 +19,8 @@ public class Item : MonoBehaviour
     public Sprite ItemSprite => _currentSprite;
     public Color ItemSpriteColor => _currentSpriteColor;
 
+    public List<(ItemAction,Item)> Recipe {  get; private set; }
+
     public void SetItemType(ItemType itemType)
     {
         _currentItemType = itemType;
@@ -35,6 +37,24 @@ public class Item : MonoBehaviour
         }
 
         _currentSprite = sprite;
+    }
+
+    public void SetItemColor(ItemColor itemColor)
+    {
+        if(_currentItemType == ItemType.Complex)
+        {
+            Debug.LogError("what the fuck are you doing");
+            return;
+        }
+
+        _currentItemColor = itemColor;
+
+        if (!itemData.ManagerSO.ItemColorToHexColorMap.TryGetValue(itemColor, out var color))
+        {
+            Debug.LogError($"Failed to find {itemColor} in {nameof(itemData.ManagerSO)}, values {itemData.ManagerSO.ItemColorToHexColorMap.Select(x => $"{x.Key}: {x.Value}")}");
+            return;
+        }
+        _currentSpriteColor = color;
     }
 
     public void EnlargeItemLevel()
@@ -55,6 +75,7 @@ public class Item : MonoBehaviour
         CurrentItemUpgradeLevel = itemData.StartingUpgradeLevel;
         _currentSprite = itemData.ItemSprite;
         _currentSpriteColor = itemData.ItemSpriteColor;
+        Recipe = new();
     }
 }
 

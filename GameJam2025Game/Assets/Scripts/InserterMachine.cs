@@ -14,34 +14,35 @@ public class InserterMachine : MonoBehaviour, IInteractable
     {
         var leftBubble = LeftMachineInput.GetItem();
         var rightBubble = RightMachineInput.GetItem();
-        var isLeftInputValid = ValidateBubble(leftBubble);
-        var isRightInputValid = ValidateBubble(rightBubble);
+        var isLeftInputValid = Helpers.ValidateBubble(leftBubble, _managerSO);
+        var isRightInputValid = Helpers.ValidateBubble(rightBubble, _managerSO);
 
         if (isLeftInputValid && isRightInputValid && interactingPlayer.HasSpaceInInventory())
         {
             LeftMachineInput.RemoveItem();
             RightMachineInput.RemoveItem();
+            var upgradeLevel = Mathf.Max(leftBubble.CurrentItemUpgradeLevel, rightBubble.CurrentItemUpgradeLevel);
+            float scaleOfInsertedItem = 1f;
+            if (upgradeLevel == 0)
+            {
+                scaleOfInsertedItem = 0.6f;
+            }
+            else if (upgradeLevel == 1)
+            {
+                scaleOfInsertedItem = 0.25f;
+            }
+            
+            var newSprite = SpriteCombiner.InsertSprites(leftBubble.ItemSprite, rightBubble.ItemSprite, Vector2.zero, scaleOfInsertedItem
+                , rightBubble.ItemSpriteColor, leftBubble.ItemSpriteColor);
 
-            var newSprite = SpriteCombiner.InsertSprites(leftBubble.ItemSprite, rightBubble.ItemSprite, Vector2.zero, 0.6f, Color.white);
-
+            leftBubble.Recipe.Add((ItemAction.INSERT,rightBubble));
             //leftBubble.Recipe.Append(Upgrades.Insert,rightBubble.CurrentItemType); //for later :)
+            leftBubble.SetItemColor(ItemColor.White);
             leftBubble.SetItemSprite(newSprite);
             leftBubble.EnlargeItemLevel();
             leftBubble.SetItemType(ItemType.Complex);
             interactingPlayer.GiveItem(leftBubble);
         }
-    }
-    private bool ValidateBubble(Item bubble)
-    {
-        if (bubble == null)
-        {
-            return false;
-        }
-        if (bubble.CurrentItemType == ItemType.Complex)
-        {
-            return bubble.CurrentItemUpgradeLevel < _managerSO.MAX_UPGRADE_LEVEL;
-        }
-        return _managerSO.BubbleTypes.Contains(bubble.CurrentItemType);
     }
 }
 

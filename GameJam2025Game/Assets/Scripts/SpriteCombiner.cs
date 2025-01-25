@@ -3,9 +3,9 @@ using UnityEngine.UIElements;
 
 public class SpriteCombiner
 {
-    public static Sprite InsertSprites(Sprite sprite1, Sprite sprite2, Vector2 offset, float scale, Color innerColor)
+    public static Sprite InsertSprites(Sprite sprite1, Sprite sprite2, Vector2 offset, float scale, Color innerColor, Color outerColor)
     {
-        return MergeSprites(sprite1, sprite2, offset, scale, innerColor, Vector2.zero, 1f, Color.white);
+        return MergeSprites(sprite1, sprite2, offset, scale, innerColor, Vector2.zero, 1f, outerColor);
     }
     public static Sprite MergeSprites(Sprite sprite1, Sprite sprite2, Vector2 offset1, float scale1, Color innerColor1
         , Vector2 offset2, float scale2, Color innerColor2)
