@@ -5,7 +5,7 @@ public abstract class PlaceableInventory : MonoBehaviour
     [SerializeField] private SpriteRenderer PickedItemSpriteRenderer = null;
     protected Inventory _inventory = null;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _inventory = new Inventory(gameObject.GetComponent<PlaceableInventory>());
     }
