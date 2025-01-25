@@ -10,8 +10,6 @@ public class MainMenuUI : MonoBehaviour
     private Resolution[] resolutions;
     private List<Resolution> filteredResolutions;
 
-    private SceneManager sceneManager;
-
     private float currentRefreshRate;
     private int currentResolutionIndex = 0;
     [SerializeField] private Scene startingScene;
