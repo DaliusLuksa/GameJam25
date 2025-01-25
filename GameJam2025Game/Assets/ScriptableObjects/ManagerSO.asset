@@ -15,9 +15,9 @@ MonoBehaviour:
   ItemTypeToSpriteMap:
     _serializedList:
     - Key: 5
-      Value: {fileID: -795577930, guid: 68b7349d5d2e18f4cb254d6c00d41286, type: 3}
+      Value: {fileID: 1667911686, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
     - Key: 6
-      Value: {fileID: -619783237, guid: 68b7349d5d2e18f4cb254d6c00d41286, type: 3}
+      Value: {fileID: -1633724362, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
     - Key: 3
       Value: {fileID: 306283622, guid: 421e786bb189392439afe5cb4d369738, type: 3}
     - Key: 2
@@ -41,7 +41,7 @@ MonoBehaviour:
   ItemColorToHexColorMap:
     _serializedList:
     - Key: 1
-      Value: {r: 1, g: 1, b: 1, a: 0}
+      Value: {r: 1, g: 1, b: 1, a: 1}
     - Key: 2
       Value: {r: 1, g: 0, b: 0, a: 1}
     - Key: 3
@@ -51,4 +51,4 @@ MonoBehaviour:
   FormTypes: 0600000005000000
   BubbleTypes: 010000000200000003000000
   PaintTypes: 08000000090000000a000000
-  MAX_UPGRADE_LEVEL: 2
+  MAX_UPGRADE_LEVEL: 3
