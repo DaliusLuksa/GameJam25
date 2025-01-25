@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58c12f86e649a5a488e8fc73d4f7aa56, type: 3}
-  m_Name: Square
+  m_Name: BaseFormItemSO
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: -1905284656, guid: 421e786bb189392439afe5cb4d369738, type: 3}
+  _managerSO: {fileID: 11400000, guid: d8b5e1c60cfd49940a0e2078100029af, type: 2}
+  itemSprite: {fileID: -1495955238, guid: 68b7349d5d2e18f4cb254d6c00d41286, type: 3}
   itemSpriteColor: {r: 1, g: 1, b: 1, a: 1}
-  itemType: 1
+  itemType: 4
   itemColor: 0
   startingUpgradeLevel: 0

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c12f86e649a5a488e8fc73d4f7aa56, type: 3}
   m_Name: CircleSO
   m_EditorClassIdentifier: 
+  _managerSO: {fileID: 11400000, guid: d8b5e1c60cfd49940a0e2078100029af, type: 2}
   itemSprite: {fileID: 1993339744, guid: 421e786bb189392439afe5cb4d369738, type: 3}
   itemSpriteColor: {r: 1, g: 1, b: 1, a: 1}
-  itemType: 2
+  itemType: 3
   itemColor: 0
   startingUpgradeLevel: 0

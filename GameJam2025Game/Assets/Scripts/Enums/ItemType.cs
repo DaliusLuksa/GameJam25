@@ -3,5 +3,6 @@
     None,
     Square,
     Triangle,
-    Circle
+    Circle,
+    BaseFormItem
 }

@@ -11,7 +11,7 @@ public class ItemSpawner : MonoBehaviour, IInteractable
             Debug.Log($"Table removed item from player... Started by - {interactingPlayer}");
             interactingPlayer.RemoveItemFromInventory();
         }
-        else //pickup new item
+        else if(interactingPlayer.HasSpaceInInventory()) //pickup new item
         {
             Debug.Log($"Table gave item to the player... Started by - {interactingPlayer}");
             Item spawnedItem = Instantiate(pickableItemPrefab);

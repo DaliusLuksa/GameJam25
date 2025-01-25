@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Item/New Item")]
 public class ItemSO : ScriptableObject
 {
+    [SerializeField] private ManagerSO _managerSO = null;
     [SerializeField] private Sprite itemSprite = null;
     [SerializeField] private Color itemSpriteColor = Color.white;
     [SerializeField] private ItemType itemType = ItemType.Circle;
@@ -14,4 +15,6 @@ public class ItemSO : ScriptableObject
     public Sprite ItemSprite => itemSprite;
     public Color ItemSpriteColor => itemSpriteColor;
     public int StartingUpgradeLevel => startingUpgradeLevel;
+
+    public ManagerSO ManagerSO => _managerSO;
 }

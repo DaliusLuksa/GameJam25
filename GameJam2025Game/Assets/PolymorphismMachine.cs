@@ -13,7 +13,7 @@ public class PolymorphismMachine : MonoBehaviour, IInteractable, IAlternativelyI
     }
     [SerializeField] private SpriteRenderer SpinnerItemSpriteRenderer = null;
     [SerializeField] private GameObject MachineInput;
-    [SerializeField] private GameObject[] ItemPrefabs;
+    [SerializeField] private ItemSO[] ItemSOs;
     private MachineState _machineState = MachineState.DORMANT;
     private ItemType[] _itemTypes = null;
     private int _spinnerIndex = 0;
@@ -23,7 +23,7 @@ public class PolymorphismMachine : MonoBehaviour, IInteractable, IAlternativelyI
 
     private void Awake()
     {
-        _itemTypes = ItemPrefabs.Select(x => x.GetComponent<Item>().CurrentItemType).ToArray();
+        _itemTypes = ItemSOs.Select(x => x.ItemType).ToArray();
     }
 
     public void Interact(Player interactingPlayer)
@@ -47,11 +47,10 @@ public class PolymorphismMachine : MonoBehaviour, IInteractable, IAlternativelyI
         {
             if (interactingPlayer.HasSpaceInInventory())
             {
-                var newItemGO = Instantiate(ItemPrefabs[_spinnerIndex], new Vector2(9000, 9000), new Quaternion());
-                var newItem = newItemGO.GetComponent<Item>();
+                _consumedItem.SetItemType(_itemTypes[_spinnerIndex]);
                 //TODO: make colors carry over from last item.
                 //newItem.CurrentItemColor = _consumedItem.CurrentItemColor;
-                interactingPlayer.GiveItem(newItem);
+                interactingPlayer.GiveItem(_consumedItem);
                 _machineState = MachineState.DORMANT;
                 SpinnerItemSpriteRenderer.gameObject.SetActive(false);
             }
@@ -59,7 +58,7 @@ public class PolymorphismMachine : MonoBehaviour, IInteractable, IAlternativelyI
     }
     private void UpdateSpriteRenderer()
     {
-        var itemComponent = ItemPrefabs[_spinnerIndex].GetComponent<Item>();
+        var itemComponent = ItemSOs[_spinnerIndex];
         SpinnerItemSpriteRenderer.color = itemComponent.ItemSpriteColor;
         SpinnerItemSpriteRenderer.sprite = itemComponent.ItemSprite;
     }
@@ -68,7 +67,7 @@ public class PolymorphismMachine : MonoBehaviour, IInteractable, IAlternativelyI
     {
         if (_machineState == MachineState.SPINNING)
         {
-            if (_spinnerIndex + 1 >= ItemPrefabs.Length)
+            if (_spinnerIndex + 1 >= ItemSOs.Length)
             {
                 _spinnerIndex = 0;
             }
