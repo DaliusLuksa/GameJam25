@@ -14,4 +14,7 @@ public class ManagerSO : ScriptableObject
     [SerializeField]
     public ItemType[] BubbleTypes = null;
 
+    [SerializeField]
+    public int MAX_UPGRADE_LEVEL = 3;
+
 }

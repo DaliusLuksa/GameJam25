@@ -39,7 +39,7 @@ public class Inventory
         _owner.UpdateItemVisibility();
 
         if(_owner.name == "Player") {
-            _handUI.onChangeHandUi(item.ItemSprite);
+            _handUI?.onChangeHandUi(item.ItemSprite);
         }
 
         return true;

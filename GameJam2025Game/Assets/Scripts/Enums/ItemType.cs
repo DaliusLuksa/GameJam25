@@ -7,4 +7,5 @@
     BaseFormItem,
     SquareForm,
     TriangleForm,
+    Complex, // is combined and/or inserted
 }

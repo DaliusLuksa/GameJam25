@@ -12,7 +12,7 @@ public class Item : MonoBehaviour
     private Sprite _currentSprite;
     private Color _currentSpriteColor;
 
-    private int _currentItemUpgradeLevel = 0;
+    public int CurrentItemUpgradeLevel { get; private set; } = 0;
 
     public ItemType CurrentItemType => _currentItemType;
     public ItemColor CurrentItemColor => _currentItemColor;
@@ -21,13 +21,30 @@ public class Item : MonoBehaviour
 
     public void SetItemType(ItemType itemType)
     {
+        _currentItemType = itemType;
+
+        if(itemType == ItemType.Complex)
+        {
+            return;
+        }
+
         if (!itemData.ManagerSO.ItemTypeToSpriteMap.TryGetValue(itemType, out var sprite))
         {
             Debug.LogError($"Failed to find {itemType} in {nameof(itemData.ManagerSO)}, values {itemData.ManagerSO.ItemTypeToSpriteMap.Select(x => $"{x.Key}: {x.Value}")}");
             return;
         }
 
-        _currentItemType = itemType;
+        _currentSprite = sprite;
+    }
+
+    public void EnlargeItemLevel()
+    {
+        CurrentItemUpgradeLevel++;
+    }
+
+    //SHOULD ONLY BE USED WITH COMPLEX TYPES.
+    public void SetItemSprite (Sprite sprite)
+    {
         _currentSprite = sprite;
     }
 
@@ -35,7 +52,7 @@ public class Item : MonoBehaviour
     {
         _currentItemType = itemData.ItemType;
         _currentItemColor = itemData.ItemColor;
-        _currentItemUpgradeLevel = itemData.StartingUpgradeLevel;
+        CurrentItemUpgradeLevel = itemData.StartingUpgradeLevel;
         _currentSprite = itemData.ItemSprite;
         _currentSpriteColor = itemData.ItemSpriteColor;
     }
