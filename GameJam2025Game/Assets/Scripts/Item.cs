@@ -37,6 +37,24 @@ public class Item : MonoBehaviour
         _currentSprite = sprite;
     }
 
+    public void SetItemColor(ItemColor itemColor)
+    {
+        if(_currentItemType == ItemType.Complex)
+        {
+            Debug.LogError("what the fuck are you doing");
+            return;
+        }
+
+        _currentItemColor = itemColor;
+
+        if (!itemData.ManagerSO.ItemColorToHexColorMap.TryGetValue(itemColor, out var color))
+        {
+            Debug.LogError($"Failed to find {itemColor} in {nameof(itemData.ManagerSO)}, values {itemData.ManagerSO.ItemColorToHexColorMap.Select(x => $"{x.Key}: {x.Value}")}");
+            return;
+        }
+        _currentSpriteColor = color;
+    }
+
     public void EnlargeItemLevel()
     {
         CurrentItemUpgradeLevel++;

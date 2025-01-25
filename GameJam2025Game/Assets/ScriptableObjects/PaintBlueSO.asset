@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c12f86e649a5a488e8fc73d4f7aa56, type: 3}
+  m_Name: PaintBlueSO
+  m_EditorClassIdentifier: 
+  _managerSO: {fileID: 11400000, guid: d8b5e1c60cfd49940a0e2078100029af, type: 2}
+  itemSprite: {fileID: -90729864, guid: 68b7349d5d2e18f4cb254d6c00d41286, type: 3}
+  itemSpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  itemType: 10
+  itemColor: 1
+  startingUpgradeLevel: 0

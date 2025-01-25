@@ -14,8 +14,8 @@ public class CombinerMachine : MonoBehaviour, IInteractable
     {
         var leftBubble = LeftMachineInput.GetItem();
         var rightBubble = RightMachineInput.GetItem();
-        var isLeftInputValid = ValidateBubble(leftBubble);
-        var isRightInputValid = ValidateBubble(rightBubble);
+        var isLeftInputValid = Helpers.ValidateBubble(leftBubble,_managerSO);
+        var isRightInputValid = Helpers.ValidateBubble(rightBubble, _managerSO);
 
         if (isLeftInputValid && isRightInputValid && interactingPlayer.HasSpaceInInventory())
         {
@@ -48,16 +48,5 @@ public class CombinerMachine : MonoBehaviour, IInteractable
             interactingPlayer.GiveItem(leftBubble);
         }
     }
-    private bool ValidateBubble(Item bubble)
-    {
-        if (bubble == null)
-        {
-            return false;
-        }
-        if (bubble.CurrentItemType == ItemType.Complex)
-        {
-            return bubble.CurrentItemUpgradeLevel < _managerSO.MAX_UPGRADE_LEVEL;
-        }
-        return _managerSO.BubbleTypes.Contains(bubble.CurrentItemType);
-    }
+
 }
