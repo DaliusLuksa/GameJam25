@@ -9,11 +9,6 @@ public class Player_Health : MonoBehaviour
     public bool IsAlive() => _isAlive;
     public bool IsDamageable(ColorsEnum roomColor) => roomColor != playerColor;
 
-    private void Awake()
-    {
-        playerColor = ColorsEnum.BLUE;
-    }
-
     public void TakeDamage(float amount)
     {
         if (health <= 0) { return; }

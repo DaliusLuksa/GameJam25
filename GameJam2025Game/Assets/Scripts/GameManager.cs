@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -24,7 +23,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<RoomStruct> roomStruct = new List<RoomStruct>();
     [SerializeField] private List<Room> roomList = new List<Room>();
     [SerializeField] private List<PlayerShitStruct> playerInitList = new List<PlayerShitStruct>();
+    // Timer for how long the day should be. In this case 3 minutes
+    [SerializeField] private int currentDay = 1;
+    [SerializeField] private float maxDayTimer = 180;
+    [SerializeField] private float currentGameTimer = 0f;
+    [SerializeField] private float changeRoomColorAfterTimer = 60;
+    [SerializeField] private float currentRoomChangeTimer = 0;
 
+
+    private bool isGameInProgress = false;
     private List<Player> playersList = new List<Player>();
     private Dictionary<Room, RoomStruct> roomTargetColors = new Dictionary<Room, RoomStruct>();
     private Dictionary<Room, RoomStruct> roomOriginalColors = new Dictionary<Room, RoomStruct>();
@@ -52,7 +59,45 @@ public class GameManager : MonoBehaviour
             playersList.Add(newPlayer);
         }
 
-        InitiateRoomColorSwitch();
+        isGameInProgress = true;
+    }
+
+    private void Update()
+    {
+        // Don't execute Update() if the game is not in progress
+        if (!isGameInProgress) { return; }
+
+        HandleGameTimer();
+    }
+
+    private void HandleGameTimer()
+    {
+        currentGameTimer += Time.deltaTime;
+        currentRoomChangeTimer += Time.deltaTime;
+        if (currentGameTimer >= maxDayTimer)
+        {
+            // Finished the day (level completed)
+            isGameInProgress = false;
+            StartCoroutine(PrepareTheNextDay());
+        }
+
+        if (isGameInProgress && currentRoomChangeTimer >= changeRoomColorAfterTimer)
+        {
+            currentRoomChangeTimer = 0;
+            // Should change the room colors
+            InitiateRoomColorSwitch();
+        }
+    }
+
+    private IEnumerator PrepareTheNextDay()
+    {
+        yield return new WaitForSeconds(5f);
+
+        currentDay++;
+        currentGameTimer = 0;
+        // Force rooms to change color at the start of the next day
+        currentRoomChangeTimer = changeRoomColorAfterTimer;
+        isGameInProgress = true;
     }
 
     private void InitiateRoomColorSwitch()
@@ -103,11 +148,6 @@ public class GameManager : MonoBehaviour
 
                 // Lerp to the target color
                 StartCoroutine(LerpRoomColor(room, originalRoomStruct, targetRoomStruct, interval));
-
-                
-
-                // Lerp back to the original color
-                //yield return StartCoroutine(LerpRoomColor(room, targetRoomStruct, originalRoomStruct, interval));
             }
 
             yield return new WaitForSeconds(interval * 2);
