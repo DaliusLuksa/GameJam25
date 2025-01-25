@@ -4,8 +4,10 @@ public class Player : PlaceableInventory
 {
     [SerializeField] private SpriteRenderer playerInteractPromptSprite = null;
     [SerializeField] private KeyCode playerInteractKeycode = KeyCode.E;
+    [SerializeField] private KeyCode playerAltInteractKeycode = KeyCode.F;
 
     private IInteractable _currInteractableObject = null;
+    private IAlternativelyInteractible _currAltInteractableObject = null;
     private PlaceableInventory _currPlaceableInventoryObject = null;
 
     // TODO: DELETE THIS SHIT LATER
@@ -27,6 +29,10 @@ public class Player : PlaceableInventory
         if (_currInteractableObject != null && Input.GetKeyDown(playerInteractKeycode))
         {
             _currInteractableObject.Interact(this);
+        }
+        if (_currAltInteractableObject != null && Input.GetKeyDown(playerAltInteractKeycode))
+        {
+            _currAltInteractableObject.AlternativelyInteract(this);
         }
 
         if (_currPlaceableInventoryObject != null && Input.GetKeyDown(playerInteractKeycode))
@@ -80,6 +86,12 @@ public class Player : PlaceableInventory
             Debug.Log($"Player hit interactable object - {collision.gameObject}");
             _currInteractableObject = collision.gameObject.GetComponent<IInteractable>();
         }
+        
+        if (collision.gameObject.GetComponent<IAlternativelyInteractible>() != null)
+        {
+            Debug.Log($"Player hit alternatively interactable object - {collision.gameObject}");
+            _currAltInteractableObject = collision.gameObject.GetComponent<IAlternativelyInteractible>();
+        }
 
         if (collision.gameObject.GetComponent<PlaceableInventory>() != null)
         {
@@ -94,6 +106,12 @@ public class Player : PlaceableInventory
         {
             Debug.Log($"Player left interactable object - {collision.gameObject}");
             _currInteractableObject = null;
+        }
+        
+        if (collision.gameObject.GetComponent<IAlternativelyInteractible>() != null)
+        {
+            Debug.Log($"Player left alternatively interactable object - {collision.gameObject}");
+            _currAltInteractableObject = null;
         }
 
         if (collision.gameObject.GetComponent<PlaceableInventory>() != null)
