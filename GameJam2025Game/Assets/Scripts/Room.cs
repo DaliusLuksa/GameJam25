@@ -43,7 +43,7 @@ public class Room : MonoBehaviour
         foreach (GameObject wall in roomWalls)
         {
             SpriteRenderer wallSR = wall.GetComponent<SpriteRenderer>();
-            wallSR.color = GameManager.Instance.GetRoomStruct(roomColor).RoomWallSpriteColor;
+            // wallSR.color = GameManager.Instance.GetRoomStruct(roomColor).RoomWallSpriteColor;
         }
     }
 }

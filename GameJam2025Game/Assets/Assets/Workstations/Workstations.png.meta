@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68b7349d5d2e18f4cb254d6c00d41286
+guid: 1f5ef46b39d30cd4c96fc486e355da15
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Workstations_0
+      name: Workstations 1_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
+        x: 32
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea7751b74d5bbc44c9b703440f1aa13e
-      internalID: -234079426
+      spriteID: e077a72c04b2eb34197ecd6b2ecb9628
+      internalID: 1809014081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_1
+      name: Workstations 1_1
       rect:
         serializedVersion: 2
-        x: 34
-        y: 49
-        width: 12
-        height: 14
+        x: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,62 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 648afd7820cb9434da789dbd502fafd6
-      internalID: -90729864
+      spriteID: 4767ace18ef6584498a012bec9b74d20
+      internalID: 1058287885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_2
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 49
-        width: 12
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67bbaa3fbbc331b42bb122977698beb5
-      internalID: 110419440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Workstations_3
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 49
-        width: 12
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e46fa43cd8df4f0488254d7340a4923b
-      internalID: -1800166833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Workstations_4
+      name: Workstations 1_2
       rect:
         serializedVersion: 2
         x: 96
-        y: 48
-        width: 16
-        height: 16
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85c01a173af0a0e4c8d10845247df71f
-      internalID: 989980469
+      spriteID: 5e6b2ea7188e12c4396fb75ac8207964
+      internalID: -1488275941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_5
+      name: Workstations 1_3
       rect:
         serializedVersion: 2
-        x: 117
-        y: 53
-        width: 6
-        height: 6
+        x: 128
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7d296a239916e548a4a4199fba5d880
-      internalID: -1655653120
+      spriteID: 40492b238531caf47b30273817012141
+      internalID: 1156828606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_6
+      name: Workstations 1_4
       rect:
         serializedVersion: 2
-        x: 134
-        y: 53
-        width: 5
-        height: 6
+        x: 192
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7bf6947313b9674ba923691d13563a1
-      internalID: -1965433528
+      spriteID: c833036285d888e41a2207368dd8f07c
+      internalID: -899635319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_7
+      name: Workstations 1_5
       rect:
         serializedVersion: 2
-        x: 149
-        y: 53
-        width: 6
-        height: 6
+        x: 224
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,104 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21e4bed9aa0a05f41ab497a4d784b6ce
-      internalID: -857029744
+      spriteID: b5cfade1dec2b1c49bba650ae0b6d039
+      internalID: 1538929881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_8
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 343184f0bb0684a4eaf38ef01158de2d
-      internalID: 1879349003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Workstations_9
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 49
-        width: 12
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b660a2db46d8a04e92f73ca6e9fa6b0
-      internalID: -1495955238
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Workstations_10
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 50
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 323dc9c1374b6774d9bbfe18ed53e535
-      internalID: -619783237
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Workstations_11
-      rect:
-        serializedVersion: 2
-        x: 227
-        y: 53
-        width: 11
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0fa5efa76c04e114fa346db1bad998f6
-      internalID: -795577930
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Workstations_12
+      name: Workstations 1_6
       rect:
         serializedVersion: 2
         x: 256
-        y: 48
-        width: 16
-        height: 16
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3bcad0ac1155b746aa1cfcd49730102
-      internalID: 149640400
+      spriteID: 09aa6a081a07f1f47a4060513eb1afab
+      internalID: -1846542927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_13
+      name: Workstations 1_7
       rect:
         serializedVersion: 2
         x: 288
-        y: 48
-        width: 16
-        height: 16
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5f29a7fb40918143b89ad30e13fae1d
-      internalID: 1712641425
+      spriteID: 99d8e3b8a99beeb478b63b982927d892
+      internalID: 62922710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_14
+      name: Workstations 1_8
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
+        x: 352
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de1580eefabaaf84892b4d91a34215bd
-      internalID: 126563780
+      spriteID: 69db41753b2fe374c82d40cfaa568fb1
+      internalID: -1491303253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_15
+      name: Workstations 1_9
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
+        x: 384
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,20 +300,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a7a7cc0b38ef6848a90c009b0c37cb1
-      internalID: 1929839683
+      spriteID: d5250f8bc7687bc48b5a974f61de5599
+      internalID: -1793645069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_16
+      name: Workstations 1_10
       rect:
         serializedVersion: 2
-        x: 80
-        y: 16
-        width: 16
-        height: 16
+        x: 416
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -447,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cb1dbd6208f0e9419f122be79536680
-      internalID: 491422183
+      spriteID: c48c24d003b28bb46aee18b04a4da32d
+      internalID: -1633724362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_17
+      name: Workstations 1_11
       rect:
         serializedVersion: 2
-        x: 112
-        y: 16
-        width: 16
-        height: 16
+        x: 448
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,20 +342,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1997aedc9ad740e45a0ae9062be290ce
-      internalID: 358415743
+      spriteID: 37f05951d5f9457499c236c59d23de4a
+      internalID: 1667911686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Workstations_18
+      name: Workstations 1_12
       rect:
         serializedVersion: 2
-        x: 144
-        y: 16
-        width: 16
-        height: 16
+        x: 512
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -489,8 +363,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8e58a4c40582fa428cdcdfe4aa05c19
-      internalID: -1197687445
+      spriteID: 60ce66dccfba0dd479fdd79aba3caffd
+      internalID: 1870981074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Workstations 1_13
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbcacc05eeb50a48bac2db463156270
+      internalID: -965407854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Workstations 1_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96869898a1854c4eb5c3d398a8c160a
+      internalID: 184293556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Workstations 1_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5edd015a28d2d2a4c99b547c658d7e1b
+      internalID: 2079069513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Workstations 1_16
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 170f365fb84ccf348af356e577ad2fa9
+      internalID: 98643177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Workstations 1_17
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8bb5f5c91acdc46be6de427aafa126
+      internalID: 1514481372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Workstations 1_18
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c260ecb7c3814f4897cf55f34a91703
+      internalID: 917029481
       vertices: []
       indices: 
       edges: []
@@ -506,25 +506,25 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Workstations_0: -234079426
-      Workstations_1: -90729864
-      Workstations_10: -619783237
-      Workstations_11: -795577930
-      Workstations_12: 149640400
-      Workstations_13: 1712641425
-      Workstations_14: 126563780
-      Workstations_15: 1929839683
-      Workstations_16: 491422183
-      Workstations_17: 358415743
-      Workstations_18: -1197687445
-      Workstations_2: 110419440
-      Workstations_3: -1800166833
-      Workstations_4: 989980469
-      Workstations_5: -1655653120
-      Workstations_6: -1965433528
-      Workstations_7: -857029744
-      Workstations_8: 1879349003
-      Workstations_9: -1495955238
+      Workstations 1_0: 1809014081
+      Workstations 1_1: 1058287885
+      Workstations 1_10: -1633724362
+      Workstations 1_11: 1667911686
+      Workstations 1_12: 1870981074
+      Workstations 1_13: -965407854
+      Workstations 1_14: 184293556
+      Workstations 1_15: 2079069513
+      Workstations 1_16: 98643177
+      Workstations 1_17: 1514481372
+      Workstations 1_18: 917029481
+      Workstations 1_2: -1488275941
+      Workstations 1_3: 1156828606
+      Workstations 1_4: -899635319
+      Workstations 1_5: 1538929881
+      Workstations 1_6: -1846542927
+      Workstations 1_7: 62922710
+      Workstations 1_8: -1491303253
+      Workstations 1_9: -1793645069
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
