@@ -21,8 +21,17 @@ public class InserterMachine : MonoBehaviour, IInteractable
         {
             LeftMachineInput.RemoveItem();
             RightMachineInput.RemoveItem();
-
-            var newSprite = SpriteCombiner.InsertSprites(leftBubble.ItemSprite, rightBubble.ItemSprite, Vector2.zero, 0.6f, Color.white);
+            var upgradeLevel = Mathf.Max(leftBubble.CurrentItemUpgradeLevel, rightBubble.CurrentItemUpgradeLevel);
+            float scaleOfInsertedItem = 1f;
+            if (upgradeLevel == 0)
+            {
+                scaleOfInsertedItem = 0.6f;
+            }
+            else if (upgradeLevel == 1)
+            {
+                scaleOfInsertedItem = 0.25f;
+            }
+            var newSprite = SpriteCombiner.InsertSprites(leftBubble.ItemSprite, rightBubble.ItemSprite, Vector2.zero, scaleOfInsertedItem, Color.white);
 
             //leftBubble.Recipe.Append(Upgrades.Insert,rightBubble.CurrentItemType); //for later :)
             leftBubble.SetItemSprite(newSprite);
