@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HandUI : MonoBehaviour
 {
@@ -10,11 +11,10 @@ public class HandUI : MonoBehaviour
 public void onChangeHandUi(Sprite newHandImage)
 {
     // Check if the GameObject has a SpriteRenderer component
-    SpriteRenderer spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
-    if (spriteRenderer != null)
+    Image image = this.gameObject.GetComponent<Image>();
+    if (newHandImage)
     {
-        // Assign the new sprite to the SpriteRenderer
-        spriteRenderer.sprite = newHandImage;
+        image.sprite = newHandImage;
     }
     else
     {
