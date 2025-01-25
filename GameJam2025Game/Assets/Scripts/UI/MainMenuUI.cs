@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -9,8 +10,11 @@ public class MainMenuUI : MonoBehaviour
     private Resolution[] resolutions;
     private List<Resolution> filteredResolutions;
 
+    private SceneManager sceneManager;
+
     private float currentRefreshRate;
     private int currentResolutionIndex = 0;
+    [SerializeField] private Scene startingScene;
 
     void Start()
     {
@@ -61,7 +65,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void OnStartGameClicked() 
     {
-        // Load to Main scene
+        SceneManager.LoadScene("Main");
     }
     public void OnExitGameClicked()
     {
