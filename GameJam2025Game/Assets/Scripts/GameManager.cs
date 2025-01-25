@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -24,6 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<PlayerShitStruct> playerInitList = new List<PlayerShitStruct>();
 
     private List<Player> playersList = new List<Player>();
+    private Dictionary<Room, RoomStruct> roomTargetColors = new Dictionary<Room, RoomStruct>();
+    private Dictionary<Room, RoomStruct> roomOriginalColors = new Dictionary<Room, RoomStruct>();
 
     public RoomStruct GetRoomStruct(ColorsEnum roomColor) => roomStruct.Find(o => o.RoomColor == roomColor);
 
@@ -46,6 +50,115 @@ public class GameManager : MonoBehaviour
         {
             Player newPlayer = Instantiate(player.PlayerPrefab, player.PlayerSpawnPosition.position, Quaternion.identity);
             playersList.Add(newPlayer);
+        }
+
+        InitiateRoomColorSwitch();
+    }
+
+    private void InitiateRoomColorSwitch()
+    {
+        // Assign new colors for each room
+        AssignNewRoomColors();
+
+        // Start coroutine to animate color switching
+        StartCoroutine(FlashRoomColors());
+    }
+
+    private void AssignNewRoomColors()
+    {
+        // Define the available colors and shuffle them
+        List<ColorsEnum> availableColors = new List<ColorsEnum> { ColorsEnum.RED, ColorsEnum.GREEN, ColorsEnum.BLUE };
+        ShuffleList(availableColors);
+
+        // Ensure we do not exceed the number of available colors
+        int maxRoomsToColor = Mathf.Min(roomList.Count, availableColors.Count);
+
+        // Assign a unique color to each room
+        for (int i = 0; i < maxRoomsToColor; i++)
+        {
+            ColorsEnum selectedColor = availableColors[i];
+            RoomStruct newRoomStruct = GetRoomStruct(selectedColor);
+
+            // Save the original color
+            roomOriginalColors[roomList[i]] = roomList[i].GetCurrentRoomStruct();
+
+            // Save the target color
+            roomTargetColors[roomList[i]] = newRoomStruct;
+        }
+    }
+
+    private IEnumerator FlashRoomColors()
+    {
+        float totalDuration = 5f; // Total duration of the flashing effect
+        float interval = 1f;    // Time between flashes
+        float elapsedTime = 0f;
+
+        while (elapsedTime < totalDuration)
+        {
+            foreach (var roomPair in roomTargetColors)
+            {
+                Room room = roomPair.Key;
+                RoomStruct originalRoomStruct = roomOriginalColors[room];
+                RoomStruct targetRoomStruct = roomTargetColors[room];
+
+                // Lerp to the target color
+                StartCoroutine(LerpRoomColor(room, originalRoomStruct, targetRoomStruct, interval));
+
+                
+
+                // Lerp back to the original color
+                //yield return StartCoroutine(LerpRoomColor(room, targetRoomStruct, originalRoomStruct, interval));
+            }
+
+            yield return new WaitForSeconds(interval * 2);
+            elapsedTime += interval * 2; // Account for both lerp intervals
+        }
+
+        // After flashing, set the rooms to their final colors
+        foreach (var roomPair in roomTargetColors)
+        {
+            Room room = roomPair.Key;
+            room.ChangeRoomColor(roomTargetColors[room]);
+        }
+
+        // Clear dictionaries as the transition is complete
+        roomTargetColors.Clear();
+        roomOriginalColors.Clear();
+    }
+
+    private IEnumerator LerpRoomColor(Room room, RoomStruct from, RoomStruct to, float duration, bool repeat = true)
+    {
+        float time = 0f;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            Color lerpedColor = Color.Lerp(from.RoomWallSpriteColor, to.RoomWallSpriteColor, t);
+            room.SetRoomWallSpriteColor(lerpedColor);
+            yield return null;
+        }
+
+        time = 0f;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            Color lerpedColor = Color.Lerp(to.RoomWallSpriteColor, from.RoomWallSpriteColor, t);
+            room.SetRoomWallSpriteColor(lerpedColor);
+            yield return null;
+        }
+        //room.SetRoomWallSpriteColor(to.RoomWallSpriteColor);
+    }
+
+    // Utility method to shuffle a list
+    private void ShuffleList<T>(List<T> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+            T temp = list[i];
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
         }
     }
 }

@@ -37,6 +37,12 @@ public class Room : MonoBehaviour
         }
     }
 
+    public void ChangeRoomColor(RoomStruct newRoomColor)
+    {
+        roomColor = newRoomColor.RoomColor;
+        UpdateRoomStuff();
+    }
+
     private void UpdateRoomStuff()
     {
         // Update wall colors
@@ -44,6 +50,20 @@ public class Room : MonoBehaviour
         {
             SpriteRenderer wallSR = wall.GetComponent<SpriteRenderer>();
             wallSR.color = GameManager.Instance.GetRoomStruct(roomColor).RoomWallSpriteColor;
+        }
+    }
+
+    public RoomStruct GetCurrentRoomStruct()
+    {
+        return GameManager.Instance.GetRoomStruct(roomColor);
+    }
+
+    public void SetRoomWallSpriteColor(Color roomColor)
+    {
+        foreach (GameObject wall in roomWalls)
+        {
+            SpriteRenderer wallSR = wall.GetComponent<SpriteRenderer>();
+            wallSR.color = roomColor;
         }
     }
 }
