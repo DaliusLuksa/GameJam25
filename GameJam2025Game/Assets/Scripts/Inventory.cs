@@ -3,6 +3,7 @@ using UnityEngine;
 public class Inventory
 {
     [SerializeField] private Item _inventoryItem = null;
+    [SerializeField] private HandUI _handUI = null;
 
     private PlaceableInventory _owner = null;
 
@@ -21,6 +22,11 @@ public class Inventory
         return _inventoryItem;
     }
 
+    public HandUI GetHandUi()
+    {
+        return _handUI;
+    }
+
     public bool AddItem(Item item)
     {
         if (_inventoryItem != null)
@@ -31,6 +37,11 @@ public class Inventory
 
         _inventoryItem = item;
         _owner.UpdateItemVisibility();
+
+        if(_owner.name == "Player") {
+            _handUI.onChangeHandUi(item.ItemSprite);
+        }
+
         return true;
     }
 
