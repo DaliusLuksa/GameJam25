@@ -14,9 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemTypeToSpriteMap:
     _serializedList:
+    - Key: 5
+      Value: {fileID: -795577930, guid: 68b7349d5d2e18f4cb254d6c00d41286, type: 3}
+    - Key: 6
+      Value: {fileID: -619783237, guid: 68b7349d5d2e18f4cb254d6c00d41286, type: 3}
     - Key: 3
       Value: {fileID: 1993339744, guid: 421e786bb189392439afe5cb4d369738, type: 3}
     - Key: 2
       Value: {fileID: 2046402574, guid: 421e786bb189392439afe5cb4d369738, type: 3}
     - Key: 1
       Value: {fileID: -1905284656, guid: 421e786bb189392439afe5cb4d369738, type: 3}
+  FormToBubbleTypesMap:
+    _serializedList:
+    - Key: 5
+      Value: 1
+    - Key: 6
+      Value: 2
+  FormTypes: 0600000005000000
+  BubbleTypes: 010000000200000003000000

@@ -18,6 +18,13 @@ public class Player_Movement : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
         movement = new Vector2(moveX, moveY);
+
+        // Set the Z rotation based on movement direction
+        if (movement != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg -90;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     void FixedUpdate()

@@ -4,5 +4,7 @@
     Square,
     Triangle,
     Circle,
-    BaseFormItem
+    BaseFormItem,
+    SquareForm,
+    TriangleForm,
 }
