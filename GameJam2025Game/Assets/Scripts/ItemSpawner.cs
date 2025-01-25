@@ -6,7 +6,8 @@ public class ItemSpawner : MonoBehaviour, IInteractable
 
     public void Interact(Player interactingPlayer)
     {
-        if (interactingPlayer.GetHeldItem()?.CurrentItemType == pickableItemPrefab?.CurrentItemType) //place down item of same type
+        if (interactingPlayer.GetHeldItem()?.CurrentItemType ==
+         pickableItemPrefab?.CurrentItemType) //place down item of same type
         {
             Debug.Log($"Table removed item from player... Started by - {interactingPlayer}");
             interactingPlayer.RemoveItemFromInventory();
