@@ -183,9 +183,8 @@ GameObject:
   - component: {fileID: 8485923342672522256}
   - component: {fileID: 2357762806470703976}
   - component: {fileID: 6789147168836819379}
-  - component: {fileID: 9181222040701889476}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player 3
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,7 +248,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: -333353930, guid: 42ad1a4af64413549ac4219b44133b32, type: 3}
+  m_Sprite: {fileID: 2135934283, guid: 42ad1a4af64413549ac4219b44133b32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -335,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickedItemSpriteRenderer: {fileID: 2138292340183098000}
-  playerIndex: 1
+  playerIndex: 3
   playerInteractPromptSprite: {fileID: 1315165920694024829}
   playerInteractKeycode: 101
   playerAltInteractKeycode: 102
@@ -353,7 +352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  animator: {fileID: 9181222040701889476}
+  animator: {fileID: 0}
+  controlScheme: 2
 --- !u!114 &6789147168836819379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,24 +368,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   playerColor: 0
---- !u!95 &9181222040701889476
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8511092139405904231}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6b56aafb830b0ce499e8d50944050d6e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

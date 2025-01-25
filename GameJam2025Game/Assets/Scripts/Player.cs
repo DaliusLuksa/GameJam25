@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : PlaceableInventory
 {
+    [SerializeField] private int playerIndex = 1;
     [SerializeField] private SpriteRenderer playerInteractPromptSprite = null;
     [SerializeField] private KeyCode playerInteractKeycode = KeyCode.E;
     [SerializeField] private KeyCode playerAltInteractKeycode = KeyCode.F;
@@ -11,6 +12,8 @@ public class Player : PlaceableInventory
     private IAlternativelyInteractible _currAltInteractableObject = null;
     private PlaceableInventory _currPlaceableInventoryObject = null;
     private Player_Health _player_health = null;
+
+    public int PlayerIndex => playerIndex;
 
     // TODO: DELETE THIS SHIT LATER
     [SerializeField] private Item currentItemHeld = null;
