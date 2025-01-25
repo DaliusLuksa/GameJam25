@@ -790,9 +790,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpinnerItemSpriteRenderer: {fileID: 2059950302}
   MachineInput: {fileID: 1340828808}
-  ItemPrefabs:
-  - {fileID: 8222931997936776570, guid: 5a5ee73f498411b4e95b623c7d4e01bc, type: 3}
-  - {fileID: 6422955120906201084, guid: 43ff72b578ccccf4791c538180b5550a, type: 3}
+  ItemSOs:
+  - {fileID: 11400000, guid: 643e46147380a814daca0607979967c1, type: 2}
+  - {fileID: 11400000, guid: 7b808926f4949d74c84aa68fea3a9d85, type: 2}
+  - {fileID: 11400000, guid: 6c70ee5791dbd2f4eae64eb10a610d33, type: 2}
 --- !u!61 &831718874
 BoxCollider2D:
   m_ObjectHideFlags: 0

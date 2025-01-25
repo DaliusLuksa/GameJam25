@@ -16,5 +16,5 @@ MonoBehaviour:
   itemSprite: {fileID: -1905284656, guid: 421e786bb189392439afe5cb4d369738, type: 3}
   itemSpriteColor: {r: 1, g: 1, b: 1, a: 1}
   itemType: 1
-  itemColor: 0
+  itemColor: 1
   startingUpgradeLevel: 0
