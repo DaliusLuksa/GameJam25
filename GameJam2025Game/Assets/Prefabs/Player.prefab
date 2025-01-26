@@ -339,6 +339,7 @@ MonoBehaviour:
   playerInteractPromptSprite: {fileID: 1315165920694024829}
   playerInteractKeycode: 101
   playerAltInteractKeycode: 102
+  _handUI: {fileID: 0}
   currentItemHeld: {fileID: 0}
 --- !u!114 &2357762806470703976
 MonoBehaviour:
@@ -354,6 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   animator: {fileID: 9181222040701889476}
+  controlScheme: 0
 --- !u!114 &6789147168836819379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  playerColor: 0
+  playerColor: 2
 --- !u!95 &9181222040701889476
 Animator:
   serializedVersion: 5

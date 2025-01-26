@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  playerColor: 0
+  playerColor: 1
 --- !u!95 &4504640500473960577
 Animator:
   serializedVersion: 5

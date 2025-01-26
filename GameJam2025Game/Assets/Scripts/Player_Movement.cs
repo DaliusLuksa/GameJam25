@@ -9,6 +9,7 @@ public class Player_Movement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private Player player = null;
+    private Player_Health _player_health = null;
 
     // Enum to define control schemes for players
     public enum ControlScheme
@@ -21,12 +22,16 @@ public class Player_Movement : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
+        _player_health = GetComponent<Player_Health>();
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0; // Ignore gravity
     }
 
     void Update()
     {
+        // If player is dead, we stop here
+        if (!_player_health.IsAlive()) { return; }
+
         // Capture input based on the assigned control scheme
         switch (controlScheme)
         {
@@ -57,6 +62,9 @@ public class Player_Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // If player is dead, we stop here
+        if (!_player_health.IsAlive()) { return; }
+
         // Apply movement to the Rigidbody2D
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
