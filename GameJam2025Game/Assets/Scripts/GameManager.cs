@@ -30,11 +30,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float changeRoomColorAfterTimer = 60;
     [SerializeField] private float currentRoomChangeTimer = 0;
 
-
     private bool isGameInProgress = false;
     private List<Player> playersList = new List<Player>();
     private Dictionary<Room, RoomStruct> roomTargetColors = new Dictionary<Room, RoomStruct>();
     private Dictionary<Room, RoomStruct> roomOriginalColors = new Dictionary<Room, RoomStruct>();
+
+    public bool IsGameInProgress() => isGameInProgress;
+    public float GetCurrentDayProgressNormalized()
+    {
+        return currentGameTimer / maxDayTimer;
+    }
 
     public RoomStruct GetRoomStruct(ColorsEnum roomColor) => roomStruct.Find(o => o.RoomColor == roomColor);
 
