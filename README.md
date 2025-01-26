@@ -3,7 +3,7 @@ A game inspired heavily by OverCooked and PlateUp games. In this game, 3 players
 
 Controls:
 P1: Movement - WASD, Interact- E, AltInteract - F
-P2: Movement - JIKL, Interact- O, AltInteract - P
+P2: Movement - IJKL, Interact- O, AltInteract - P
 P3: Movement - ARROW_KEYS, Interact - NUMPAD_1, AltInteract - NUMPAD_2.
 
 Machines:
@@ -13,5 +13,7 @@ Foundry: creates bubbles based on the bubble form. (circles to squares and trian
 Painting: paints bubbles into different colors.
 
 The players take damage when they are not in their respective color rooms.
+Players can use teleporters to transfer items between rooms, but they first need to be setup via the router (Interact and AltInteract it).
 Orders need to be submitted into the bottom left of the map (trucks).
 Machines have a max upgrade depth of 3 bubbles.
+There are also trashcans which can delete items if players mess up.
