@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TriangleSO
   m_EditorClassIdentifier: 
   _managerSO: {fileID: 11400000, guid: d8b5e1c60cfd49940a0e2078100029af, type: 2}
-  itemSprite: {fileID: -1440172245, guid: 421e786bb189392439afe5cb4d369738, type: 3}
+  itemSprite: {fileID: 21300000, guid: 0c189fecb1466f74cbb71299ab191f36, type: 3}
   itemSpriteColor: {r: 1, g: 1, b: 1, a: 1}
   itemType: 2
   itemColor: 1

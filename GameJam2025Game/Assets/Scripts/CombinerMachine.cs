@@ -50,7 +50,7 @@ public class CombinerMachine : MonoBehaviour, IInteractable
             , leftOffset, leftScale, leftColor);
 
         leftBubble.Recipe.Add((ItemAction.COMBINE, rightBubble));
-        //leftBubble.Recipe.Append(Upgrades.Combine,rightBubble.CurrentItemType); //for later :)
+
         leftBubble.SetItemColor(ItemColor.White); // Dalius - Why are you setting this to white????
         leftBubble.SetItemSprite(newSprite);
         leftBubble.EnlargeItemLevel();

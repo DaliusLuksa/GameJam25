@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SquareSO
   m_EditorClassIdentifier: 
   _managerSO: {fileID: 11400000, guid: d8b5e1c60cfd49940a0e2078100029af, type: 2}
-  itemSprite: {fileID: 2137644659, guid: 421e786bb189392439afe5cb4d369738, type: 3}
+  itemSprite: {fileID: 21300000, guid: 071101f435c76cf43b5116f04350dcd9, type: 3}
   itemSpriteColor: {r: 1, g: 1, b: 1, a: 1}
   itemType: 1
   itemColor: 1

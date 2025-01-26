@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,31 @@ public class InserterMachine : MonoBehaviour, IInteractable
 
     [SerializeField] private ManagerSO _managerSO = null;
 
+    public static Item UpgradeItem(Item leftBubble, Item rightBubble)
+    {
+        var upgradeLevel = Mathf.Max(leftBubble.CurrentItemUpgradeLevel, rightBubble.CurrentItemUpgradeLevel);
+        float scaleOfInsertedItem = 1f;
+        if (upgradeLevel == 0)
+        {
+            scaleOfInsertedItem = 0.6f;
+        }
+        else if (upgradeLevel == 1)
+        {
+            scaleOfInsertedItem = 0.25f;
+        }
+
+        var newSprite = SpriteCombiner.InsertSprites(leftBubble.ItemSprite, rightBubble.ItemSprite, Vector2.zero, scaleOfInsertedItem
+            , rightBubble.ItemSpriteColor, leftBubble.ItemSpriteColor);
+
+        leftBubble.Recipe.Add((ItemAction.INSERT, rightBubble));
+
+        leftBubble.SetItemColor(ItemColor.White); // Dalius - Why are you setting this to white????
+        leftBubble.SetItemSprite(newSprite);
+        leftBubble.EnlargeItemLevel();
+        leftBubble.SetItemType(ItemType.Complex);
+        return leftBubble;
+    }
+
     public void Interact(Player interactingPlayer)
     {
         var leftBubble = LeftMachineInput.GetItem();
@@ -21,26 +47,7 @@ public class InserterMachine : MonoBehaviour, IInteractable
         {
             LeftMachineInput.RemoveItem();
             RightMachineInput.RemoveItem();
-            var upgradeLevel = Mathf.Max(leftBubble.CurrentItemUpgradeLevel, rightBubble.CurrentItemUpgradeLevel);
-            float scaleOfInsertedItem = 1f;
-            if (upgradeLevel == 0)
-            {
-                scaleOfInsertedItem = 0.6f;
-            }
-            else if (upgradeLevel == 1)
-            {
-                scaleOfInsertedItem = 0.25f;
-            }
             
-            var newSprite = SpriteCombiner.InsertSprites(leftBubble.ItemSprite, rightBubble.ItemSprite, Vector2.zero, scaleOfInsertedItem
-                , rightBubble.ItemSpriteColor, leftBubble.ItemSpriteColor);
-
-            leftBubble.Recipe.Add((ItemAction.INSERT,rightBubble));
-            //leftBubble.Recipe.Append(Upgrades.Insert,rightBubble.CurrentItemType); //for later :)
-            //leftBubble.SetItemColor(ItemColor.White); // Dalius - Why are you setting this to white????
-            leftBubble.SetItemSprite(newSprite);
-            leftBubble.EnlargeItemLevel();
-            leftBubble.SetItemType(ItemType.Complex);
             interactingPlayer.GiveItem(leftBubble);
         }
     }

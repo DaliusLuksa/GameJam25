@@ -5,8 +5,8 @@ public class Order : MonoBehaviour
 {
     private Item _itemGoal = null;
     private List<ItemType> possibleItemTypes = new List<ItemType>() { ItemType.Circle, ItemType.Square, ItemType.Triangle };
-    private List<ItemColor> possibleItemColors = new List<ItemColor>() { ItemColor.Red, ItemColor.Green, ItemColor.Blue };
-
+    private List<ItemColor> possibleItemColors = new List<ItemColor>() { ItemColor.White, ItemColor.Red, ItemColor.Green, ItemColor.Blue };
+    private readonly List<ItemAction> possibleItemActions = new List<ItemAction>() { ItemAction.COMBINE, ItemAction.INSERT };
     public Item ItemGoal => _itemGoal;
 
     public Order(int day, List<OrderItemShitter> shitter)
@@ -22,20 +22,34 @@ public class Order : MonoBehaviour
         if (day > 1)
         {
             recipeOrder = new List<(ItemAction, Item)>();
-            var randomuItemuTypu = ItemType.Circle;
-            var randomuItemuCororu = ItemColor.Blue;
-            var itemuDatu = shitter.Find(o => o.ItemType == randomuItemuTypu).ItemData;
-            recipeOrder.Add((ItemAction.COMBINE, new Item(randomuItemuTypu, randomuItemuCororu, itemuDatu)));
+
+            recipeOrder.Add(GenerateRandomOrder(shitter));
+
+            if ((int)Random.Range(0, 3) == 0) // 33.33% chance
+            {
+                recipeOrder.Add(GenerateRandomOrder(shitter));
+            }
         }
 
         var randomItemType = possibleItemTypes[Random.Range(0, possibleItemTypes.Count)];
         var randomItemColor = possibleItemColors[Random.Range(0, possibleItemColors.Count)];
         var itemData = shitter.Find(o => o.ItemType == randomItemType).ItemData;
         _itemGoal = new Item(randomItemType, randomItemColor, itemData, new());
-        
-        foreach(var recipeItem in recipeOrder)
+
+        foreach (var recipeItem in recipeOrder)
         {
-            _itemGoal = CombinerMachine.UpgradeItem(_itemGoal, recipeItem.Item2);
+            if (recipeItem.Item1 == ItemAction.COMBINE)
+            {
+                _itemGoal = CombinerMachine.UpgradeItem(_itemGoal, recipeItem.Item2);
+            }
+            else if (recipeItem.Item1 == ItemAction.INSERT)
+            {
+                _itemGoal = InserterMachine.UpgradeItem(_itemGoal, recipeItem.Item2);
+            }
+            else
+            {
+                Debug.LogError("poopie wrong itemaction");
+            }
         }
 
         return _itemGoal;
@@ -66,5 +80,14 @@ public class Order : MonoBehaviour
         }
 
         return item.CompareItem(_itemGoal);
+    }
+
+    private (ItemAction, Item) GenerateRandomOrder(List<OrderItemShitter> shitter)
+    {
+        var randomuItemuTypu = possibleItemTypes[Random.Range(0, possibleItemTypes.Count)];
+        var randomuItemuCororu = possibleItemColors[Random.Range(0, possibleItemColors.Count)];
+        var randomItemAction = possibleItemActions[Random.Range(0, possibleItemActions.Count)];
+        var itemuDatu = shitter.Find(o => o.ItemType == randomuItemuTypu).ItemData;
+        return (randomItemAction, new Item(randomuItemuTypu, randomuItemuCororu, itemuDatu));
     }
 }
