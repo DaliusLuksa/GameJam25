@@ -26,6 +26,5 @@ public class Player_Health : MonoBehaviour
         Debug.Log($"{gameObject.name} Player has died!");
 
         _isAlive = false;
-        gameObject.SetActive(false);
     }
 }

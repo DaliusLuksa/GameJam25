@@ -37,7 +37,7 @@ public class Player : PlaceableInventory
 
     private void HandlePlayerInteractInput()
     {
-        // If player is dead, we block the input handling stuff
+        // If player is dead, we stop here
         if (!_player_health.IsAlive()) { return; }
 
         if (_currInteractableObject != null && Input.GetKeyDown(playerInteractKeycode))
