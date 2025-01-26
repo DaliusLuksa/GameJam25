@@ -12,6 +12,7 @@ public class Player : PlaceableInventory
     private IAlternativelyInteractible _currAltInteractableObject = null;
     private PlaceableInventory _currPlaceableInventoryObject = null;
     private Player_Health _player_health = null;
+    private Sound_Effect soundEffect;
 
     public int PlayerIndex => playerIndex;
 
@@ -22,6 +23,7 @@ public class Player : PlaceableInventory
     {
         base.Awake();
         _player_health = GetComponent<Player_Health>();
+        soundEffect = GetComponent<Sound_Effect>();
     }
 
     private void Update()
@@ -43,6 +45,8 @@ public class Player : PlaceableInventory
         if (_currInteractableObject != null && Input.GetKeyDown(playerInteractKeycode))
         {
             _currInteractableObject.Interact(this);
+            
+            soundEffect.playSounds("interactSoundEffect");
         }
         if (_currAltInteractableObject != null && Input.GetKeyDown(playerAltInteractKeycode))
         {
@@ -81,6 +85,8 @@ public class Player : PlaceableInventory
         {
             currentItemHeld = newItem;
             _handUI?.onChangeHandUi(newItem.ItemSprite);
+
+            soundEffect.playSounds("pickup");
         }
     }
 
@@ -89,6 +95,8 @@ public class Player : PlaceableInventory
         _inventory.RemoveItem();
         currentItemHeld = null;
         _handUI?.onChangeHandUi(null);
+
+        soundEffect.playSounds("place");
     }
 
     public Item? GetHeldItem()
