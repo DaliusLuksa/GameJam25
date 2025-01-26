@@ -3,10 +3,17 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    public bool ShouldDamagePlayer { get; private set; } = true;
+
     [SerializeField] private ColorsEnum roomColor = ColorsEnum.UNKNOWN;
     [SerializeField] private List<GameObject> roomWalls = new List<GameObject>();
 
     private Player_Health player = null;
+
+    public void SetShouldDamagePlayer(bool value)
+    {
+        ShouldDamagePlayer = value;
+    }
 
     private void Start()
     {
@@ -15,7 +22,7 @@ public class Room : MonoBehaviour
 
     private void Update()
     {
-        if (player != null && player.IsAlive() && player.IsDamageable(roomColor))
+        if (ShouldDamagePlayer && player != null && player.IsAlive() && player.IsDamageable(roomColor))
         {
             player.TakeDamage(Time.deltaTime);
         }

@@ -167,6 +167,9 @@ public class GameManager : MonoBehaviour
 
             // Save the target color
             roomTargetColors[roomList[i]] = newRoomStruct;
+
+            // Disable room damage while it's changing the color
+            roomList[i].SetShouldDamagePlayer(false);
         }
     }
 
@@ -197,6 +200,8 @@ public class GameManager : MonoBehaviour
         {
             Room room = roomPair.Key;
             room.ChangeRoomColor(roomTargetColors[room]);
+            // Reenable room damage
+            room.SetShouldDamagePlayer(true);
         }
 
         // Clear dictionaries as the transition is complete
