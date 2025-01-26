@@ -48,6 +48,8 @@ public class InserterMachine : MonoBehaviour, IInteractable
             LeftMachineInput.RemoveItem();
             RightMachineInput.RemoveItem();
             
+            leftBubble = UpgradeItem(leftBubble,rightBubble);
+
             interactingPlayer.GiveItem(leftBubble);
         }
     }

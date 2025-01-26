@@ -19,9 +19,9 @@ public class Order : MonoBehaviour
     {
         List<(ItemAction, Item)> recipeOrder = null;
         // Only start adding recipe stuff after day 1
+            recipeOrder = new List<(ItemAction, Item)>();
         if (day > 1)
         {
-            recipeOrder = new List<(ItemAction, Item)>();
 
             recipeOrder.Add(GenerateRandomOrder(shitter));
 
