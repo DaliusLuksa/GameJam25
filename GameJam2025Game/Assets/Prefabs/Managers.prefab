@@ -44,6 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085d8ff979b0915469b9bdbe30bed621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orderItemShitterList:
+  - ItemType: 2
+    ItemData: {fileID: 11400000, guid: 6c70ee5791dbd2f4eae64eb10a610d33, type: 2}
+  - ItemType: 1
+    ItemData: {fileID: 11400000, guid: 7b808926f4949d74c84aa68fea3a9d85, type: 2}
+  - ItemType: 3
+    ItemData: {fileID: 11400000, guid: 643e46147380a814daca0607979967c1, type: 2}
+  orderUIScript: {fileID: 0}
   damageIndicator: {fileID: 0}
   roomStruct:
   - RoomColor: 1

@@ -16,10 +16,19 @@ public struct PlayerShitStruct
     public Transform PlayerSpawnPosition;
 }
 
+[System.Serializable]
+public struct OrderItemShitter
+{
+    public ItemType ItemType;
+    public ItemSO ItemData;
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; } = null;
 
+    [SerializeField] private List<OrderItemShitter> orderItemShitterList = new List<OrderItemShitter>();
+    [SerializeField] private OrderUIScript orderUIScript = null;
     [SerializeField] private DamageIndicator damageIndicator = null;
     [SerializeField] private List<RoomStruct> roomStruct = new List<RoomStruct>();
     [SerializeField] private List<Room> roomList = new List<Room>();
@@ -31,6 +40,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float changeRoomColorAfterTimer = 60;
     [SerializeField] private float currentRoomChangeTimer = 0;
     [SerializeField] private int finishedContracts = 0;
+    [SerializeField] private float maxTimerForNewOrder = 20f;
+    [SerializeField] private float currentTimerForNewOrder = 0f;
 
     private List<Order> ordersList = null;
     private bool isGameInProgress = false;
@@ -40,6 +51,7 @@ public class GameManager : MonoBehaviour
     // Define the available colors and shuffle them
     List<ColorsEnum> availableColors = new List<ColorsEnum> { ColorsEnum.RED, ColorsEnum.GREEN, ColorsEnum.BLUE };
 
+    public OrderUIScript OrderUIScript => orderUIScript;
     public DamageIndicator DamageIndicator => damageIndicator;
     public int FinishedContracts => finishedContracts;
     public Player GetPlayer(int index)
@@ -80,8 +92,8 @@ public class GameManager : MonoBehaviour
 
         isGameInProgress = true;
         ordersList = new List<Order>();
-        ordersList.Add(new Order(1));
-        ordersList.Add(new Order(1));
+        // Create first order when the game starts
+        CreateNewOrder();
     }
 
     private void Update()
@@ -90,11 +102,6 @@ public class GameManager : MonoBehaviour
         if (!isGameInProgress) { return; }
 
         HandleGameTimer();
-
-        if (ordersList[0].IsOrderFinished(playersList[0].GetHeldItem()))
-        {
-            Debug.Log("Order is the same!");
-        }
     }
 
     public void DisableRoomOnPlayerDeath(ColorsEnum color)
@@ -121,16 +128,25 @@ public class GameManager : MonoBehaviour
             if (order.IsOrderFinished(item))
             {
                 finishedContracts++;
+                orderUIScript.DestroyuBaduOrderu(item);
                 ordersList.Remove(order);
                 return;
             }
         }
     }
 
+    private void CreateNewOrder()
+    {
+        var newOrdaru = new Order(currentDay, orderItemShitterList);
+        orderUIScript.CreateNewOrder(newOrdaru.ItemGoal);
+        ordersList.Add(newOrdaru);
+    }
+
     private void HandleGameTimer()
     {
         currentGameTimer += Time.deltaTime;
         currentRoomChangeTimer += Time.deltaTime;
+        currentTimerForNewOrder += Time.deltaTime;
         if (currentGameTimer >= maxDayTimer)
         {
             // Finished the day (level completed)
@@ -143,6 +159,12 @@ public class GameManager : MonoBehaviour
             currentRoomChangeTimer = 0;
             // Should change the room colors
             InitiateRoomColorSwitch();
+        }
+
+        if (isGameInProgress && currentTimerForNewOrder >= maxTimerForNewOrder)
+        {
+            currentTimerForNewOrder = 0;
+            CreateNewOrder();
         }
     }
 
