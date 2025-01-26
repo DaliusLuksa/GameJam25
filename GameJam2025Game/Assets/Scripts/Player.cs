@@ -79,10 +79,6 @@ public class Player : PlaceableInventory
                 if (_currInteractableObject != null && Input.GetKeyDown(KeyCode.Keypad1))
                 {
                     _currInteractableObject.Interact(this);
-                    if (soundEffect != null)
-                    {
-                        soundEffect.playSounds("interactSoundEffect");
-                    }
                 }
                 if (_currAltInteractableObject != null && Input.GetKeyDown(KeyCode.Keypad2))
                 {
@@ -117,10 +113,6 @@ public class Player : PlaceableInventory
                 if (_currInteractableObject != null && Input.GetKeyDown(KeyCode.O))
                 {
                     _currInteractableObject.Interact(this);
-                    if (soundEffect != null)
-                    {
-                        soundEffect.playSounds("interactSoundEffect");
-                    }
                 }
                 if (_currAltInteractableObject != null && Input.GetKeyDown(KeyCode.P))
                 {
