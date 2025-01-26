@@ -4,6 +4,8 @@ using UnityEngine;
 public class Order : MonoBehaviour
 {
     private Item _itemGoal = null;
+    private List<ItemType> possibleItemTypes = new List<ItemType>() { ItemType.Circle, ItemType.Square, ItemType.Triangle };
+    private List<ItemColor> possibleItemColors = new List<ItemColor>() { ItemColor.Red, ItemColor.Green, ItemColor.Blue };
 
     public Order(int day)
     {
@@ -13,10 +15,17 @@ public class Order : MonoBehaviour
 
     private Item PrepareAnOrder(int day)
     {
-        List<(ItemAction, Item)> recipeOrder = new List<(ItemAction, Item)>();
-        recipeOrder.Add((ItemAction.COMBINE, new Item(ItemType.Circle, ItemColor.Blue)));
+        List<(ItemAction, Item)> recipeOrder = null;
+        // Only start adding recipe stuff after day 1
+        if (day > 1)
+        {
+            recipeOrder = new List<(ItemAction, Item)>();
+            recipeOrder.Add((ItemAction.COMBINE, new Item(ItemType.Circle, ItemColor.Blue)));
+        }
 
-        _itemGoal = new Item(ItemType.Square, ItemColor.Green, recipeOrder);
+        var randomItemType = possibleItemTypes[Random.Range(0, possibleItemTypes.Count)];
+        var randomItemColor = possibleItemColors[Random.Range(0, possibleItemColors.Count)];
+        _itemGoal = new Item(randomItemType, randomItemColor, recipeOrder);
         
         return _itemGoal;
     }

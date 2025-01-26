@@ -180,6 +180,22 @@ public class Player : PlaceableInventory
         return _inventory.GetItem();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<IInteractable>() != null)
+        {
+            _currInteractableObject = collision.gameObject.GetComponent<IInteractable>();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<IInteractable>() != null)
+        {
+            _currInteractableObject = null;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<IInteractable>() != null)

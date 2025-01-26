@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float currentGameTimer = 0f;
     [SerializeField] private float changeRoomColorAfterTimer = 60;
     [SerializeField] private float currentRoomChangeTimer = 0;
-    [SerializeField] private float finishedContracts = 0;
+    [SerializeField] private int finishedContracts = 0;
 
     private List<Order> ordersList = null;
     private bool isGameInProgress = false;
@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<Room, RoomStruct> roomTargetColors = new Dictionary<Room, RoomStruct>();
     private Dictionary<Room, RoomStruct> roomOriginalColors = new Dictionary<Room, RoomStruct>();
 
+    public int FinishedContracts => finishedContracts;
     public Player GetPlayer(int index)
     {
         if (playerInitList.Count <= 0) { return null; }
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
         isGameInProgress = true;
         ordersList = new List<Order>();
         ordersList.Add(new Order(1));
+        ordersList.Add(new Order(1));
     }
 
     private void Update()
@@ -88,6 +90,19 @@ public class GameManager : MonoBehaviour
         if (ordersList[0].IsOrderFinished(playersList[0].GetHeldItem()))
         {
             Debug.Log("Order is the same!");
+        }
+    }
+
+    public void TryToSubmitOrder(Item item)
+    {
+        foreach (var order in ordersList)
+        {
+            if (order.IsOrderFinished(item))
+            {
+                finishedContracts++;
+                ordersList.Remove(order);
+                return;
+            }
         }
     }
 
