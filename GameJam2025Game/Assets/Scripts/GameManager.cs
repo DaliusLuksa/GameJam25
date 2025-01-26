@@ -129,6 +129,16 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PrepareTheNextDay()
     {
+        // Revive all dead players
+        foreach (var player in playersList)
+        {
+            var player_health = player.GetComponent<Player_Health>();
+            if (!player_health.IsAlive())
+            {
+                player_health.Revive();
+            }
+        }
+
         yield return new WaitForSeconds(5f);
 
         currentDay++;
