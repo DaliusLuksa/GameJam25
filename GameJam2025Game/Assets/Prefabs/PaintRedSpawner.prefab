@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4103eb2f88e8c854aa8642149b84297d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickableItemPrefab: {fileID: 0}
+  pickableItemPrefab: {fileID: 4033433544710404854, guid: 17ead54ab365fb0499aac0a9e1477608, type: 3}
