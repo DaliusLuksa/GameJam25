@@ -4,9 +4,8 @@ using UnityEngine;
 
 public static class GameObjectFlasher
 {
-    private static readonly Dictionary<GameObject, Coroutine> FlashingObjects = new Dictionary<GameObject, Coroutine>();
+    private static readonly Dictionary<GameObject, FlashingBehaviour> FlashingObjects = new Dictionary<GameObject, FlashingBehaviour>();
 
-    // Static method to start or stop flashing
     public static void SetGameObjectFlashing(GameObject target, bool isFlashing, Color flashColor, float flashDuration = 0.5f)
     {
         if (target == null)
@@ -24,71 +23,77 @@ public static class GameObjectFlasher
 
         if (isFlashing)
         {
-            // Start flashing if not already flashing
+            // Start flashing
             if (!FlashingObjects.ContainsKey(target))
             {
-                Coroutine flashCoroutine = target.AddComponent<FlashingBehaviour>().StartFlash(renderer, flashColor, flashDuration);
-                FlashingObjects[target] = flashCoroutine;
+                FlashingBehaviour flasher = target.AddComponent<FlashingBehaviour>();
+                FlashingObjects[target] = flasher;
+                flasher.StartFlash(renderer, flashColor, flashDuration);
             }
         }
         else
         {
-            // Stop flashing if it's currently flashing
+            // Stop flashing
             if (FlashingObjects.ContainsKey(target))
             {
-                target.GetComponent<FlashingBehaviour>().StopFlash(renderer);
-                Object.Destroy(target.GetComponent<FlashingBehaviour>()); // Cleanup temporary behavior
+                FlashingObjects[target].StopFlash(renderer);
+                Object.Destroy(FlashingObjects[target]); // Remove the behavior
                 FlashingObjects.Remove(target);
             }
         }
     }
 }
 
-// Helper MonoBehaviour for the flashing logic
 public class FlashingBehaviour : MonoBehaviour
 {
     private Coroutine flashCoroutine;
+    private Color originalColor;
 
-    // Start the flash coroutine
-    public Coroutine StartFlash(Renderer renderer, Color flashColor, float flashDuration)
+    // Start the flashing effect
+    public void StartFlash(Renderer renderer, Color flashColor, float flashDuration)
     {
+        // If a coroutine is already running, stop it first
+        if (flashCoroutine != null)
+        {
+            StopCoroutine(flashCoroutine);
+        }
+
+        // Store the original color and start the flashing coroutine
+        originalColor = renderer.material.color;
         flashCoroutine = StartCoroutine(FlashEffect(renderer, flashColor, flashDuration));
-        return flashCoroutine;
     }
 
-    // Stop the flash coroutine
+    // Stop the flashing effect
     public void StopFlash(Renderer renderer)
     {
         if (flashCoroutine != null)
         {
             StopCoroutine(flashCoroutine);
             flashCoroutine = null;
+        }
 
-            // Restore the original color
-            if (renderer != null)
-            {
-                Material material = renderer.material;
-                material.color = material.color; // Restore cached color
-                //material.color = Color.white; // fix because randomly objects stay red or green
-            }
+        // Restore the original color
+        if (renderer != null && renderer.material != null)
+        {
+            renderer.material.color = originalColor;
         }
     }
 
-    // Coroutine to handle the flashing effect
+    // Coroutine for the flashing effect
     private IEnumerator FlashEffect(Renderer renderer, Color flashColor, float flashDuration)
     {
-        Material material = renderer.material;
-        Color originalColor = material.color;
-
         while (true)
         {
-            // Change to flash color
-            material.color = flashColor;
-            yield return new WaitForSeconds(flashDuration / 2);
+            if (renderer.material != null)
+            {
+                // Flash color
+                renderer.material.color = flashColor;
+                yield return new WaitForSeconds(flashDuration / 2);
 
-            // Revert to original color
-            material.color = originalColor;
-            yield return new WaitForSeconds(flashDuration / 2);
+                // Revert to original color
+                renderer.material.color = originalColor;
+                yield return new WaitForSeconds(flashDuration / 2);
+            }
         }
     }
 }

@@ -49,6 +49,10 @@ public class Router : MonoBehaviour, IInteractable, IAlternativelyInteractible
 
             //link them together
             var color = GetUnusedColor();
+            if (_currentlySelectedInput.GetComponent<Renderer>().material.color != Color.white)
+            {
+                Debug.LogError("yipee, you fucked it");
+            }
             _currentlySelectedInput.GetComponent<Renderer>().material.color = color;
             _currentlySelectedOutput.GetComponent<Renderer>().material.color = color;
 
@@ -80,14 +84,9 @@ public class Router : MonoBehaviour, IInteractable, IAlternativelyInteractible
 
     Color[] colors = new Color[]
     {
-        Color.blue,
-        Color.cyan,
-        Color.magenta,
-        new Color(0.5f, 0.25f, 0.75f), // Purple-like
-        new Color(0.2f, 0.5f, 0.8f),  // Sky blue
-        new Color(0.7f, 0.3f, 0.6f),  // Light pinkish purple
-        new Color(0.2f, 0.6f, 0.7f),  // Teal
-        new Color(0.3f, 0.3f, 0.8f)   // Indigo
+        new Color(1.0f, 0.2688679f, 0.8971444f, 1.0f), // pink,
+        new Color(0.240566f,0.5383211f,1,1f), //blue
+        new Color(0.25f,1f,0.53f,1) // dark green
     };
 
     private Color GetUnusedColor()
@@ -116,7 +115,7 @@ public class Router : MonoBehaviour, IInteractable, IAlternativelyInteractible
     private void Awake()
     {
         links = new();
-        if(!InputPipes.Any() || !OutputPipes.Any())
+        if (!InputPipes.Any() || !OutputPipes.Any())
         {
             Debug.LogError("You forgot to link pipes in router.");
         }
