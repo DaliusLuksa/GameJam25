@@ -25,11 +25,13 @@ public class Item : MonoBehaviour
     public Item() { }
     public Item(ItemType type, ItemColor color, ItemSO itemDATA, List<(ItemAction, Item)> recipe = null) 
     {
-        _currentItemType = type;
-        _daliusCurrentItemType = type;
-        _currentItemColor = color;
-        Recipe = recipe;
         itemData = itemDATA;
+        Awake();
+        SetItemType(type);
+        _daliusCurrentItemType = type;
+        SetItemColor(color);
+        Recipe = recipe;
+
     }
 
     public List<(ItemAction,Item)> Recipe {  get; private set; }

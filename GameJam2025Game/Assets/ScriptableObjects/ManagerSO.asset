@@ -19,11 +19,11 @@ MonoBehaviour:
     - Key: 6
       Value: {fileID: -1633724362, guid: 1f5ef46b39d30cd4c96fc486e355da15, type: 3}
     - Key: 3
-      Value: {fileID: 306283622, guid: 421e786bb189392439afe5cb4d369738, type: 3}
+      Value: {fileID: 21300000, guid: 6e5f7e445aa048442bde39f543826949, type: 3}
     - Key: 2
-      Value: {fileID: -1440172245, guid: 421e786bb189392439afe5cb4d369738, type: 3}
+      Value: {fileID: 21300000, guid: 0c189fecb1466f74cbb71299ab191f36, type: 3}
     - Key: 1
-      Value: {fileID: 2137644659, guid: 421e786bb189392439afe5cb4d369738, type: 3}
+      Value: {fileID: 21300000, guid: 071101f435c76cf43b5116f04350dcd9, type: 3}
   FormToBubbleTypesMap:
     _serializedList:
     - Key: 5

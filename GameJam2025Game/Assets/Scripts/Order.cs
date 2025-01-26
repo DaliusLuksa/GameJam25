@@ -31,8 +31,13 @@ public class Order : MonoBehaviour
         var randomItemType = possibleItemTypes[Random.Range(0, possibleItemTypes.Count)];
         var randomItemColor = possibleItemColors[Random.Range(0, possibleItemColors.Count)];
         var itemData = shitter.Find(o => o.ItemType == randomItemType).ItemData;
-        _itemGoal = new Item(randomItemType, randomItemColor, itemData, recipeOrder);
+        _itemGoal = new Item(randomItemType, randomItemColor, itemData, new());
         
+        foreach(var recipeItem in recipeOrder)
+        {
+            _itemGoal = CombinerMachine.UpgradeItem(_itemGoal, recipeItem.Item2);
+        }
+
         return _itemGoal;
     }
 

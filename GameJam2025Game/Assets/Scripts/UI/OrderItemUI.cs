@@ -10,7 +10,7 @@ public class OrderItemUI : MonoBehaviour
     public void SetupOrderItemUI(Item item)
     {
         _item = item;
-        itemSprite.sprite = item.ItemData.ItemSprite;
+        itemSprite.sprite = item.ItemSprite;
         item.ItemData.ManagerSO.ItemColorToHexColorMap.TryGetValue(item.CurrentItemColor, out var color);
         itemSprite.color = color;
         itemSprite.gameObject.SetActive(true);
