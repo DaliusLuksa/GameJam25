@@ -11,15 +11,36 @@ public class Item : MonoBehaviour
     private ItemColor _currentItemColor = ItemColor.White;
     private Sprite _currentSprite;
     private Color _currentSpriteColor;
+    private ItemType _daliusCurrentItemType = ItemType.Circle;
 
     public int CurrentItemUpgradeLevel { get; private set; } = 0;
 
     public ItemType CurrentItemType => _currentItemType;
+    public ItemType DaliusCurrentItemType => _daliusCurrentItemType;
     public ItemColor CurrentItemColor => _currentItemColor;
     public Sprite ItemSprite => _currentSprite;
     public Color ItemSpriteColor => _currentSpriteColor;
 
+    public Item() { }
+    public Item(ItemType type, ItemColor color, List<(ItemAction, Item)> recipe = null) 
+    {
+        _currentItemType = type;
+        _daliusCurrentItemType = type;
+        _currentItemColor = color;
+        Recipe = recipe;
+    }
+
     public List<(ItemAction,Item)> Recipe {  get; private set; }
+
+    public bool CompareItem(Item itemToCompare)
+    {
+        return _currentItemColor == itemToCompare.CurrentItemColor && _daliusCurrentItemType == itemToCompare.DaliusCurrentItemType;
+    }
+
+    public void DaliusSetItemType(ItemType itemType)
+    {
+        _daliusCurrentItemType = itemType;
+    }
 
     public void SetItemType(ItemType itemType)
     {
@@ -71,6 +92,7 @@ public class Item : MonoBehaviour
     private void Awake()
     {
         _currentItemType = itemData.ItemType;
+        _daliusCurrentItemType = itemData.ItemType;
         _currentItemColor = itemData.ItemColor;
         CurrentItemUpgradeLevel = itemData.StartingUpgradeLevel;
         _currentSprite = itemData.ItemSprite;

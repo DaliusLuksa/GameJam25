@@ -37,7 +37,7 @@ public class InserterMachine : MonoBehaviour, IInteractable
 
             leftBubble.Recipe.Add((ItemAction.INSERT,rightBubble));
             //leftBubble.Recipe.Append(Upgrades.Insert,rightBubble.CurrentItemType); //for later :)
-            leftBubble.SetItemColor(ItemColor.White);
+            //leftBubble.SetItemColor(ItemColor.White); // Dalius - Why are you setting this to white????
             leftBubble.SetItemSprite(newSprite);
             leftBubble.EnlargeItemLevel();
             leftBubble.SetItemType(ItemType.Complex);

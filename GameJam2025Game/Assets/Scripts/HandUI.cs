@@ -1,31 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HandUI : MonoBehaviour
 {
-    [SerializeField] private Player _player = null;
+    [SerializeField] private int playerIndex = 1;
+    private Player _player = null;
+    private Image _image = null;
 
     void Start()
     {
-        this.gameObject.SetActive(false);
+        _image = transform.GetChild(0).GetComponent<Image>();
     }
 
-public void onChangeHandUi(Sprite newHandImage)
-{
-    // Check if the GameObject has a SpriteRenderer component
-    Image image = this.gameObject.GetComponent<Image>();
-    if (newHandImage)
+    private void Update()
     {
-        image.sprite = newHandImage;
-        this.gameObject.SetActive(true);
+        _player = GameManager.Instance.GetPlayer(playerIndex);
+        if (_player != null)
+        {
+            if (_player.GetHeldItem() == null)
+            {
+                _image.gameObject.SetActive(false);
+            }
+            else
+            {
+                _image.sprite = _player.GetHeldItem().ItemSprite;
+                _image.color = _player.GetHeldItem().ItemSpriteColor;
+                _image.gameObject.SetActive(true);
+            }
+        }
     }
-    else
-    {
-        this.gameObject.SetActive(false);
-        Debug.LogWarning("SpriteRenderer component not found on the GameObject.");
-    }
-}
 }

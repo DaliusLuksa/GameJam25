@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085d8ff979b0915469b9bdbe30bed621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageIndicator: {fileID: 0}
   roomStruct:
   - RoomColor: 1
     RoomWallSpriteColor: {r: 0.6627451, g: 0.23137255, b: 0.23137255, a: 1}
@@ -62,3 +63,9 @@ MonoBehaviour:
     PlayerSpawnPosition: {fileID: 0}
   - PlayerPrefab: {fileID: 8485923342672522256, guid: c446d893eab601d47a4bcf1060883be8, type: 3}
     PlayerSpawnPosition: {fileID: 0}
+  currentDay: 1
+  maxDayTimer: 180
+  currentGameTimer: 0
+  changeRoomColorAfterTimer: 60
+  currentRoomChangeTimer: 0
+  finishedContracts: 0

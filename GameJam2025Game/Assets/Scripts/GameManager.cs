@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; } = null;
 
+    [SerializeField] private DamageIndicator damageIndicator = null;
     [SerializeField] private List<RoomStruct> roomStruct = new List<RoomStruct>();
     [SerializeField] private List<Room> roomList = new List<Room>();
     [SerializeField] private List<PlayerShitStruct> playerInitList = new List<PlayerShitStruct>();
@@ -29,12 +30,30 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float currentGameTimer = 0f;
     [SerializeField] private float changeRoomColorAfterTimer = 60;
     [SerializeField] private float currentRoomChangeTimer = 0;
+    [SerializeField] private int finishedContracts = 0;
 
-
+    private List<Order> ordersList = null;
     private bool isGameInProgress = false;
     private List<Player> playersList = new List<Player>();
     private Dictionary<Room, RoomStruct> roomTargetColors = new Dictionary<Room, RoomStruct>();
     private Dictionary<Room, RoomStruct> roomOriginalColors = new Dictionary<Room, RoomStruct>();
+    // Define the available colors and shuffle them
+    List<ColorsEnum> availableColors = new List<ColorsEnum> { ColorsEnum.RED, ColorsEnum.GREEN, ColorsEnum.BLUE };
+
+    public DamageIndicator DamageIndicator => damageIndicator;
+    public int FinishedContracts => finishedContracts;
+    public Player GetPlayer(int index)
+    {
+        if (playerInitList.Count <= 0) { return null; }
+
+        return playersList.Find(o => o.PlayerIndex == index);
+    }
+    public bool IsGameInProgress() => isGameInProgress;
+    public float GetCurrentDayProgressNormalized()
+    {
+        return currentGameTimer / maxDayTimer;
+    }
+    public int CurrentDay => currentDay;
 
     public RoomStruct GetRoomStruct(ColorsEnum roomColor) => roomStruct.Find(o => o.RoomColor == roomColor);
 
@@ -60,6 +79,9 @@ public class GameManager : MonoBehaviour
         }
 
         isGameInProgress = true;
+        ordersList = new List<Order>();
+        ordersList.Add(new Order(1));
+        ordersList.Add(new Order(1));
     }
 
     private void Update()
@@ -68,6 +90,41 @@ public class GameManager : MonoBehaviour
         if (!isGameInProgress) { return; }
 
         HandleGameTimer();
+
+        if (ordersList[0].IsOrderFinished(playersList[0].GetHeldItem()))
+        {
+            Debug.Log("Order is the same!");
+        }
+    }
+
+    public void DisableRoomOnPlayerDeath(ColorsEnum color)
+    {
+        roomList.Find(o => o.RoomColor == color).SetIsRoomEnabled(false);
+        availableColors.Remove(color);
+    }
+
+    public void ReenableAllDisabledRooms()
+    {
+        foreach (var room in roomList)
+        {
+            room.SetIsRoomEnabled(true);
+        }
+
+        // Restore available colors list
+        availableColors = new List<ColorsEnum> { ColorsEnum.RED, ColorsEnum.GREEN, ColorsEnum.BLUE };
+    }
+
+    public void TryToSubmitOrder(Item item)
+    {
+        foreach (var order in ordersList)
+        {
+            if (order.IsOrderFinished(item))
+            {
+                finishedContracts++;
+                ordersList.Remove(order);
+                return;
+            }
+        }
     }
 
     private void HandleGameTimer()
@@ -91,6 +148,21 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PrepareTheNextDay()
     {
+        yield return new WaitForSeconds(1.5f);
+
+        // Revive all dead players
+        foreach (var player in playersList)
+        {
+            var player_health = player.GetComponent<Player_Health>();
+            if (!player_health.IsAlive())
+            {
+                player_health.Revive();
+            }
+        }
+
+        // Reenable all rooms
+        ReenableAllDisabledRooms();
+
         yield return new WaitForSeconds(5f);
 
         currentDay++;
@@ -111,17 +183,23 @@ public class GameManager : MonoBehaviour
 
     private void AssignNewRoomColors()
     {
-        // Define the available colors and shuffle them
-        List<ColorsEnum> availableColors = new List<ColorsEnum> { ColorsEnum.RED, ColorsEnum.GREEN, ColorsEnum.BLUE };
-        ShuffleList(availableColors);
+        var copyOfAvailableColors = new List<ColorsEnum>(availableColors);
+        ShuffleList(copyOfAvailableColors);
 
         // Ensure we do not exceed the number of available colors
-        int maxRoomsToColor = Mathf.Min(roomList.Count, availableColors.Count);
+        //int maxRoomsToColor = Mathf.Min(roomList.Count, copyOfAvailableColors.Count);
+        int maxRoomsToColor = roomList.Count;
 
         // Assign a unique color to each room
         for (int i = 0; i < maxRoomsToColor; i++)
         {
-            ColorsEnum selectedColor = availableColors[i];
+            // Skip disabled room
+            if (!roomList[i].IsRoomEnabled) { continue; }
+
+            // Select the first color
+            ColorsEnum selectedColor = copyOfAvailableColors[0];
+            // Delete it afterwards
+            copyOfAvailableColors.RemoveAt(0);
             RoomStruct newRoomStruct = GetRoomStruct(selectedColor);
 
             // Save the original color
@@ -129,6 +207,9 @@ public class GameManager : MonoBehaviour
 
             // Save the target color
             roomTargetColors[roomList[i]] = newRoomStruct;
+
+            // Disable room damage while it's changing the color
+            roomList[i].SetShouldDamagePlayer(false);
         }
     }
 
@@ -159,6 +240,8 @@ public class GameManager : MonoBehaviour
         {
             Room room = roomPair.Key;
             room.ChangeRoomColor(roomTargetColors[room]);
+            // Reenable room damage
+            room.SetShouldDamagePlayer(true);
         }
 
         // Clear dictionaries as the transition is complete
@@ -187,7 +270,6 @@ public class GameManager : MonoBehaviour
             room.SetRoomWallSpriteColor(lerpedColor);
             yield return null;
         }
-        //room.SetRoomWallSpriteColor(to.RoomWallSpriteColor);
     }
 
     // Utility method to shuffle a list
