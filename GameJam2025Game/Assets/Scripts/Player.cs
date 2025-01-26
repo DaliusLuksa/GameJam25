@@ -198,19 +198,16 @@ public class Player : PlaceableInventory
     {
         if (collision.gameObject.GetComponent<IInteractable>() != null)
         {
-            Debug.Log($"Player hit interactable object - {collision.gameObject}");
             _currInteractableObject = collision.gameObject.GetComponent<IInteractable>();
         }
 
         if (collision.gameObject.GetComponent<IAlternativelyInteractible>() != null)
         {
-            Debug.Log($"Player hit alternatively interactable object - {collision.gameObject}");
             _currAltInteractableObject = collision.gameObject.GetComponent<IAlternativelyInteractible>();
         }
 
         if (collision.gameObject.GetComponent<PlaceableInventory>() != null)
         {
-            Debug.Log($"Player hit IPlaceableInventory object, he can place an item here. - {collision.gameObject}");
             _currPlaceableInventoryObject = collision.gameObject.GetComponent<PlaceableInventory>();
         }
     }
@@ -219,19 +216,16 @@ public class Player : PlaceableInventory
     {
         if (collision.gameObject.GetComponent<IInteractable>() != null)
         {
-            Debug.Log($"Player left interactable object - {collision.gameObject}");
             _currInteractableObject = null;
         }
 
         if (collision.gameObject.GetComponent<IAlternativelyInteractible>() != null)
         {
-            Debug.Log($"Player left alternatively interactable object - {collision.gameObject}");
             _currAltInteractableObject = null;
         }
 
         if (collision.gameObject.GetComponent<PlaceableInventory>() != null)
         {
-            Debug.Log($"Player left IPlaceableInventory object. - {collision.gameObject}");
             _currPlaceableInventoryObject = null;
         }
     }
