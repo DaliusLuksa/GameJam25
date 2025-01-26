@@ -8,7 +8,6 @@ public class Sound_Effect : MonoBehaviour
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private AudioClip placeSound;
-    [SerializeField] private AudioClip interactSoundEffect;
 
     public void playSounds(string soundName)
     {
