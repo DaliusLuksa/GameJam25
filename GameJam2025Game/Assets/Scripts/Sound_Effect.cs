@@ -32,10 +32,6 @@ public class Sound_Effect : MonoBehaviour
                 audio.clip = placeSound;
 
                 break;
-            case "interact":
-                audio.clip = interactSoundEffect;
-
-                break;
             default:
                 Debug.LogError("Unknown sound effect");
                 break;
