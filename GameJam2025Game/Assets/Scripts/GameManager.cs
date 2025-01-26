@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     private List<Player> playersList = new List<Player>();
     private Dictionary<Room, RoomStruct> roomTargetColors = new Dictionary<Room, RoomStruct>();
     private Dictionary<Room, RoomStruct> roomOriginalColors = new Dictionary<Room, RoomStruct>();
+    // Define the available colors and shuffle them
+    List<ColorsEnum> availableColors = new List<ColorsEnum> { ColorsEnum.RED, ColorsEnum.GREEN, ColorsEnum.BLUE };
 
     public DamageIndicator DamageIndicator => damageIndicator;
     public int FinishedContracts => finishedContracts;
@@ -95,6 +97,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void DisableRoomOnPlayerDeath(ColorsEnum color)
+    {
+        roomList.Find(o => o.RoomColor == color).SetIsRoomEnabled(false);
+        availableColors.Remove(color);
+    }
+
+    public void ReenableAllDisabledRooms()
+    {
+        foreach (var room in roomList)
+        {
+            room.SetIsRoomEnabled(true);
+        }
+
+        // Restore available colors list
+        availableColors = new List<ColorsEnum> { ColorsEnum.RED, ColorsEnum.GREEN, ColorsEnum.BLUE };
+    }
+
     public void TryToSubmitOrder(Item item)
     {
         foreach (var order in ordersList)
@@ -129,6 +148,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PrepareTheNextDay()
     {
+        yield return new WaitForSeconds(1.5f);
+
         // Revive all dead players
         foreach (var player in playersList)
         {
@@ -138,6 +159,9 @@ public class GameManager : MonoBehaviour
                 player_health.Revive();
             }
         }
+
+        // Reenable all rooms
+        ReenableAllDisabledRooms();
 
         yield return new WaitForSeconds(5f);
 
@@ -159,17 +183,23 @@ public class GameManager : MonoBehaviour
 
     private void AssignNewRoomColors()
     {
-        // Define the available colors and shuffle them
-        List<ColorsEnum> availableColors = new List<ColorsEnum> { ColorsEnum.RED, ColorsEnum.GREEN, ColorsEnum.BLUE };
-        ShuffleList(availableColors);
+        var copyOfAvailableColors = new List<ColorsEnum>(availableColors);
+        ShuffleList(copyOfAvailableColors);
 
         // Ensure we do not exceed the number of available colors
-        int maxRoomsToColor = Mathf.Min(roomList.Count, availableColors.Count);
+        //int maxRoomsToColor = Mathf.Min(roomList.Count, copyOfAvailableColors.Count);
+        int maxRoomsToColor = roomList.Count;
 
         // Assign a unique color to each room
         for (int i = 0; i < maxRoomsToColor; i++)
         {
-            ColorsEnum selectedColor = availableColors[i];
+            // Skip disabled room
+            if (!roomList[i].IsRoomEnabled) { continue; }
+
+            // Select the first color
+            ColorsEnum selectedColor = copyOfAvailableColors[0];
+            // Delete it afterwards
+            copyOfAvailableColors.RemoveAt(0);
             RoomStruct newRoomStruct = GetRoomStruct(selectedColor);
 
             // Save the original color
@@ -240,7 +270,6 @@ public class GameManager : MonoBehaviour
             room.SetRoomWallSpriteColor(lerpedColor);
             yield return null;
         }
-        //room.SetRoomWallSpriteColor(to.RoomWallSpriteColor);
     }
 
     // Utility method to shuffle a list

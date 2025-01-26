@@ -38,9 +38,15 @@ public class Player_Health : MonoBehaviour
         animator.SetBool("Walking", false);
         animator.SetBool("IsDead", true);
 
-        soundEffect.playSounds("death");
+        // Yeah... Don't let Motiejus cook after 2 AM
+        if (soundEffect != null)
+        {
+            soundEffect.playSounds("death");
+        }
 
         _isAlive = false;
+
+        GameManager.Instance.DisableRoomOnPlayerDeath(playerColor);
     }
 
     public void Revive()
