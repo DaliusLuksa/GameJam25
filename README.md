@@ -1,4 +1,4 @@
-# GameJam25
+# Bubble Up - GameJam 2025
 A game inspired heavily by OverCooked and PlateUp games. In this game, 3 players play as robots who craft different shape bubbles. The goal is to complete orders in the top right of the screen and survive as long as possible.
 
 Controls:
