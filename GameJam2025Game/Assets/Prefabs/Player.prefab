@@ -370,6 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   playerColor: 2
+  animator: {fileID: 9181222040701889476}
 --- !u!95 &9181222040701889476
 Animator:
   serializedVersion: 5
