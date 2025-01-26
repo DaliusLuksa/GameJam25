@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; } = null;
 
+    [SerializeField] private DamageIndicator damageIndicator = null;
     [SerializeField] private List<RoomStruct> roomStruct = new List<RoomStruct>();
     [SerializeField] private List<Room> roomList = new List<Room>();
     [SerializeField] private List<PlayerShitStruct> playerInitList = new List<PlayerShitStruct>();
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<Room, RoomStruct> roomTargetColors = new Dictionary<Room, RoomStruct>();
     private Dictionary<Room, RoomStruct> roomOriginalColors = new Dictionary<Room, RoomStruct>();
 
+    public DamageIndicator DamageIndicator => damageIndicator;
     public int FinishedContracts => finishedContracts;
     public Player GetPlayer(int index)
     {

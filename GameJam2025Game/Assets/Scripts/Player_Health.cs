@@ -23,6 +23,8 @@ public class Player_Health : MonoBehaviour
     {
         if (health <= 0) { return; }
 
+        GameManager.Instance.DamageIndicator.FlashVignette();
+
         health -= amount;
 
         if (health <= 0)

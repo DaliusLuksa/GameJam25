@@ -147,8 +147,6 @@ public class Player : PlaceableInventory
                 break;
                 
         }
-
-        
     }
 
     public void GiveItem(Item newItem)
