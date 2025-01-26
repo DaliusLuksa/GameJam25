@@ -20,14 +20,16 @@ public class Item : MonoBehaviour
     public ItemColor CurrentItemColor => _currentItemColor;
     public Sprite ItemSprite => _currentSprite;
     public Color ItemSpriteColor => _currentSpriteColor;
+    public ItemSO ItemData => itemData;
 
     public Item() { }
-    public Item(ItemType type, ItemColor color, List<(ItemAction, Item)> recipe = null) 
+    public Item(ItemType type, ItemColor color, ItemSO itemDATA, List<(ItemAction, Item)> recipe = null) 
     {
         _currentItemType = type;
         _daliusCurrentItemType = type;
         _currentItemColor = color;
         Recipe = recipe;
+        itemData = itemDATA;
     }
 
     public List<(ItemAction,Item)> Recipe {  get; private set; }

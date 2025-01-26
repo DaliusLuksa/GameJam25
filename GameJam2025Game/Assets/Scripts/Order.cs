@@ -7,25 +7,31 @@ public class Order : MonoBehaviour
     private List<ItemType> possibleItemTypes = new List<ItemType>() { ItemType.Circle, ItemType.Square, ItemType.Triangle };
     private List<ItemColor> possibleItemColors = new List<ItemColor>() { ItemColor.Red, ItemColor.Green, ItemColor.Blue };
 
-    public Order(int day)
+    public Item ItemGoal => _itemGoal;
+
+    public Order(int day, List<OrderItemShitter> shitter)
     {
         // Use day to decide how hard this order should be
-        _itemGoal = PrepareAnOrder(day);
+        _itemGoal = PrepareAnOrder(day, shitter);
     }
 
-    private Item PrepareAnOrder(int day)
+    private Item PrepareAnOrder(int day, List<OrderItemShitter> shitter)
     {
         List<(ItemAction, Item)> recipeOrder = null;
         // Only start adding recipe stuff after day 1
         if (day > 1)
         {
             recipeOrder = new List<(ItemAction, Item)>();
-            recipeOrder.Add((ItemAction.COMBINE, new Item(ItemType.Circle, ItemColor.Blue)));
+            var randomuItemuTypu = ItemType.Circle;
+            var randomuItemuCororu = ItemColor.Blue;
+            var itemuDatu = shitter.Find(o => o.ItemType == randomuItemuTypu).ItemData;
+            recipeOrder.Add((ItemAction.COMBINE, new Item(randomuItemuTypu, randomuItemuCororu, itemuDatu)));
         }
 
         var randomItemType = possibleItemTypes[Random.Range(0, possibleItemTypes.Count)];
         var randomItemColor = possibleItemColors[Random.Range(0, possibleItemColors.Count)];
-        _itemGoal = new Item(randomItemType, randomItemColor, recipeOrder);
+        var itemData = shitter.Find(o => o.ItemType == randomItemType).ItemData;
+        _itemGoal = new Item(randomItemType, randomItemColor, itemData, recipeOrder);
         
         return _itemGoal;
     }
