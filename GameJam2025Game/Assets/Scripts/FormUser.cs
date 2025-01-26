@@ -36,6 +36,7 @@ public class FormUser : MonoBehaviour, IInteractable
                 return;
             }
             bubble.SetItemType(builtItemType);
+            bubble.DaliusSetItemType(builtItemType);
             interactingPlayer.GiveItem(bubble);
         }
     }

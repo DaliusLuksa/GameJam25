@@ -62,3 +62,9 @@ MonoBehaviour:
     PlayerSpawnPosition: {fileID: 0}
   - PlayerPrefab: {fileID: 8485923342672522256, guid: c446d893eab601d47a4bcf1060883be8, type: 3}
     PlayerSpawnPosition: {fileID: 0}
+  currentDay: 1
+  maxDayTimer: 180
+  currentGameTimer: 0
+  changeRoomColorAfterTimer: 60
+  currentRoomChangeTimer: 0
+  finishedContracts: 0

@@ -341,8 +341,6 @@ MonoBehaviour:
   playerInteractPromptSprite: {fileID: 1315165920694024829}
   playerInteractKeycode: 101
   playerAltInteractKeycode: 102
-  _handUI: {fileID: 0}
-  currentItemHeld: {fileID: 0}
 --- !u!114 &2357762806470703976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +371,6 @@ MonoBehaviour:
   health: 10
   playerColor: 2
   animator: {fileID: 9181222040701889476}
-  soundEffect: {fileID: 8940094458663982665}
 --- !u!95 &9181222040701889476
 Animator:
   serializedVersion: 5

@@ -4,12 +4,14 @@ public class Player_Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Animator animator;
-    [SerializeField] private ControlScheme controlScheme = ControlScheme.WASD; // Assign control scheme in the Inspector
+    [SerializeField] private ControlScheme controlScheme = ControlScheme.WASD;
 
     private Rigidbody2D rb;
     private Vector2 movement;
     private Player player = null;
     private Player_Health _player_health = null;
+
+    public ControlScheme GetControlScheme() => controlScheme;
 
     // Enum to define control schemes for players
     public enum ControlScheme
